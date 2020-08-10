@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Qruize Magic - Installation Procedures · Qruize Magic</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## &lt;u&gt;Contents&lt;/u&gt; ##"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Qruize Magic - Installation Procedures · Qruize Magic"/><meta property="og:type" content="website"/><meta property="og:url" content="https://chandruQ.github.io/"/><meta property="og:description" content="## &lt;u&gt;Contents&lt;/u&gt; ##"/><meta property="og:image" content="https://chandruQ.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://chandruQ.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://chandruQ.github.io/blog/atom.xml" title="Qruize Magic Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://chandruQ.github.io/blog/feed.xml" title="Qruize Magic Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qruize Magic"/><h2 class="headerTitleWithLogo">Qruize Magic</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/doc" target="_self">Docs</a></li><li class=""><a href="/docs/doc11" target="_self">API</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>QruizeMagic</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">QruizeMagic</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/doc">About QruizeMagic</a></li><li class="navListItem"><a class="navItem" href="/docs/doc1">QM in Business Model</a></li><li class="navListItem"><a class="navItem" href="/docs/doc2">How to Deploy QM (On-Premise)</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/doc3">How to Use and Install QM</a></li><li class="navListItem"><a class="navItem" href="/docs/doc4">How to Run Sample Process?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc5">How to Build a Automation Process?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc6">How to Develop a Custom Plugin?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc7">Third party integrated service</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Qruize Magic - Installation Procedures</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="ucontentsu"></a><a href="#ucontentsu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>Contents</u></h2>
+<ol>
+<li>Purpose</li>
+<li>Required Software</li>
+<li>Installation – For Windows OS</li>
+<li>Installation – For Ubuntu OS</li>
+</ol>
+<ol>
+<li><p>Purpose</p>
+<p>The intended purpose of this Installation / Deployment Guide is to describe you the necessary steps for configuring the Qruize Magic application at your environment and make it operational.</p></li>
+<li><p>Required Software</p>
+<p>Java 14</p></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="uinstallation-of-java-14u"></a><a href="#uinstallation-of-java-14u" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>Installation of JAVA 14</u></h3>
+<ol>
+<li>To check Java has already installed in your system, in the command prompt window, type <strong>java –version</strong> and press the enter key.</li>
+<li>To newly install JAVA 14 in your windows system (64-bit), open the URL
+&quot;<a href="https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html">https://www.oracle.com/java/technologies/javase/jdk14-archive-downloads.html</a>&quot;</li>
+<li>Click on the link shown below to download the Java package. Run the exe file and continue the installation process.</li>
+</ol>
+<p><img src="/img/QMInstallation/1.jpg" alt="java download page" title="1"></p>
+<h3><a class="anchor" aria-hidden="true" id="uinstallation--for-windows-osu"></a><a href="#uinstallation--for-windows-osu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>Installation – For Windows OS</u></h3>
+<p>According to Qruize Magic, the installation implies adding the QM files in required location and it not implies of running any .EXE files.
+Installation of Local BOT:</p>
+<ol>
+<li><p>You will receive a mail from Qruize that contains the link for downloading the files required for Qruize Magic installation. (OR)  You need to download and save QruizeMagic.zip (BOT setup) and Process files into your work environment. You are required to save it in a stable location (C or D drive). Below is the link to download the Qruize Magic folder setup.
+<a href="https://qruizemail.sharepoint.com/sites/qruizemagic/Shared%20Documents/QruizeMagic%20Setup%20file%20and%20document/QruizeMagic.zip">https://qruizemail.sharepoint.com/sites/qruizemagic/Shared%20Documents/QruizeMagic%20Setup%20file%20and%20document/QruizeMagic.zip</a></p></li>
+<li><p>Unzip the <strong>QruizeMagic.zip</strong> file.</p></li>
+<li><p>Open the bootstrap (properties file) from the path \QruizeMagic\config</p></li>
+<li><p>Kindly make the following URL working in your environment.
+The <a href="http://spring.cloud">spring.cloud</a>.config.uri should be updated as  <a href="http://13.233.248.152:8182">http://13.233.248.152:8182</a> .and key.entry should be
+set static instead of dynamic.</p></li>
+</ol>
+<p><img src="/img/QMInstallation/2.jpg" alt="spring.cloud" title="1"></p>
+<ol start="5">
+<li><p>As a next step, you need to set QM application path and Java JDK paths on your system environment variable. To do this:</p>
+<p>a) In the windows search field, type “Edit the System Environmental variables” and click on the enter button</p>
+<p>b) Click on the Environmental Variables… button in the Advanced tab</p>
+<p>c) In the user variables section, click on the New button</p>
+<p>d) To set QM application path on User variable, provide QM_HOME as variable name</p>
+<p>e) Set extracted base path up to QruizeMagic as Variable value.</p>
+<p>For example: C:\QruizeMagic</p>
+<p>f) Click on the OK button.</p></li>
+</ol>
+<p><strong>Setting environmental variable path for QruizeMagic</strong></p>
+<p><img src="/img/QMInstallation/3.jpg" alt="Environment variable" title="1"></p>
+<p><strong>Setting environmental variable path for java JDK</strong></p>
+<p>g) To set Java JDK path on User variable, provide JAVA_HOME as variable name</p>
+<p>h) Set extracted base path up to jdk-14.0.1 as Variable value.
+For example: C:\Program Files\Java\jdk-14.0.1</p>
+<p><img src="/img/QMInstallation/4.jpg" alt="Java Home" title="1"></p>
+<p><strong>Setting environmental variable path for java JDK bin folder</strong></p>
+<p>i) To set Java path on system variable, double click on Path and set extracted base path up to bin folder as Variable value. Then click on the OK button.
+For example: C:\Program Files\Java\jdk-14.0.1\bin</p>
+<p><img src="/img/QMInstallation/6.jpg" alt="JDK Bin file" title="1"></p>
+<ol start="6">
+<li>Locate to the extracted path manually up to <strong>QruizeMagic</strong> folder.</li>
+</ol>
+<p><img src="/img/QMInstallation/7.jpg" alt="QruizeMagic" title="1"></p>
+<ol start="7">
+<li>Type cmd in the address bar and click on the enter button</li>
+</ol>
+<p><img src="/img/QMInstallation/8.jpg" alt="CMD QruizeMagic" title="1"></p>
+<ol start="8">
+<li><p>You can initiate batch file to initiate the bot (or) In the command prompt window, type the command:  <strong>java -jar -Dspring.config.location=config\bootstrap.properties QruizeMagic-Robot-Service-v2.0.0.9.jar</strong></p></li>
+<li><p>Note: PATH should be up to QruizeMagic folder. In this scenario, it is C:\QruizeMagic</p></li>
+</ol>
+<p><img src="/img/QMInstallation/9.jpg" alt="CMD java command" title="1"></p>
+<ol start="10">
+<li>After entering the above command press the enter key in command prompt window to initiate installation process.</li>
+</ol>
+<p><img src="/img/QMInstallation/10.jpg" alt="CMD BOT Engine " title="1"></p>
+<p>Now the Qruize Magic robot service will be initiated and now you can open the below URL and execute the process.
+<a href="https://uatplatform.qruizemagic.com">https://uatplatform.qruizemagic.com</a></p>
+<h3><a class="anchor" aria-hidden="true" id="uinstallation--for-ubuntu-osu"></a><a href="#uinstallation--for-ubuntu-osu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>Installation – For Ubuntu OS</u></h3>
+<p>Installation of Local BOT:</p>
+<ol>
+<li>You will receive a mail from Qruize that contain the links for downloading the files required for installing Qruize Magic in your system.</li>
+<li>You need to download and save QruizeMagic.zip (BOT setup) and Process files into your work environment. You are required to save it in a stable location.</li>
+<li>Open the bootstrap.properties from the path /QruizeMagic/config</li>
+<li>Kindly make the following URL working in your environment.
+The spring.cloud.config.uri should be updated as <strong><a href="http://13.233.248.152:8182">http://13.233.248.152:8182</a></strong> .and key.entry should be set static instead of dynamic.</li>
+</ol>
+<p><img src="/img/QMInstallation/11UbuntuOS.jpg" alt="Spring Ubuntu OS" title="1"></p>
+<ol start="5">
+<li><p>As a next step, you need to set QM application path on your system environment variable. To do this:</p>
+<p>a) Open terminal (command prompt window)</p>
+<p>b) Type gedit ~/.bashrc and press enter key, this will open a bashrc file.</p>
+<p>c) At the end of the line, kindly add the below command to set the environment variable path.
+export QM_HOME=/ home/selvam/Documents/QruizeMagic</p></li>
+</ol>
+<p><img src="/img/QMInstallation/12.jpg" alt="Export QMHOME" title="1"></p>
+<p>Here, “QM_HOME” is variable name <strong>“home/selvam/Documents/QruizeMagic”</strong> is location
+of the QruizeMagic folder path. You need to give the path location where you saved the QruizeMagic folder.</p>
+<p>d) Save the changes and close the bashrc file.</p>
+<p>e) Close the terminal window.</p>
+<ol start="6">
+<li><p>To run the QM dependency files, locate to the extracted path manually up to QruizeMagic folder and open it. Right click and select Open in Terminal option.</p></li>
+<li><p>In the terminal page, type the below command:
+<strong>java -jar -Dspring.config.location=config/bootstrap.properties QruizeMagic-Robot-Service-v2.0.0.9.jar</strong></p>
+<p><strong>Note:</strong> PATH should be up to QruizeMagic folder. In this scenario, it is /home/selvam/Downloads/</p></li>
+<li><p>After entering the above command press the enter key in terminal window to initiate installation process.</p></li>
+</ol>
+<p><img src="/img/QMInstallation/13.jpg" alt="BOT Engine" title="1"></p>
+<ol start="9">
+<li>Now the Qruize Magic robot service will be initiated and now you can open the below URL and execute the process.
+<strong><a href="https://uatplatform.qruizemagic.com">https://uatplatform.qruizemagic.com</a></strong></li>
+</ol>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/doc2"><span class="arrow-prev">← </span><span>How to Deploy QM (On-Premise)</span></a><a class="docs-next button" href="/docs/doc4"><span>How to Run Sample Process?</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#ucontentsu"><u>Contents</u></a><ul class="toc-headings"><li><a href="#uinstallation-of-java-14u"><u>Installation of JAVA 14</u></a></li><li><a href="#uinstallation--for-windows-osu"><u>Installation – For Windows OS</u></a></li><li><a href="#uinstallation--for-ubuntu-osu"><u>Installation – For Ubuntu OS</u></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.png" alt="Qruize Magic" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://qruize.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="QruizeFacebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Qruize Inc</section></footer></div></body></html>

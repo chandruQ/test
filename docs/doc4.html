@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Qruize Magic - Sample Process · Qruize Magic</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="1. **Introduction**"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Qruize Magic - Sample Process · Qruize Magic"/><meta property="og:type" content="website"/><meta property="og:url" content="https://chandruQ.github.io/"/><meta property="og:description" content="1. **Introduction**"/><meta property="og:image" content="https://chandruQ.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://chandruQ.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://chandruQ.github.io/blog/atom.xml" title="Qruize Magic Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://chandruQ.github.io/blog/feed.xml" title="Qruize Magic Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qruize Magic"/><h2 class="headerTitleWithLogo">Qruize Magic</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/doc" target="_self">Docs</a></li><li class=""><a href="/docs/doc11" target="_self">API</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>QruizeMagic</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">QruizeMagic</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/doc">About QruizeMagic</a></li><li class="navListItem"><a class="navItem" href="/docs/doc1">QM in Business Model</a></li><li class="navListItem"><a class="navItem" href="/docs/doc2">How to Deploy QM (On-Premise)</a></li><li class="navListItem"><a class="navItem" href="/docs/doc3">How to Use and Install QM</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/doc4">How to Run Sample Process?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc5">How to Build a Automation Process?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc6">How to Develop a Custom Plugin?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc7">Third party integrated service</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Qruize Magic - Sample Process</h1></header><article><div><span><ol>
+<li><p><strong>Introduction</strong>
+The purpose of this document is to describe you the steps involved for executing the process using Qruize Magic application.</p></li>
+<li><p><strong>Document Scope and Intended Audience</strong>
+This run document is intended to be used by software support personnel who will be responsible for planning, performing, or maintaining the process execution of the application.</p></li>
+<li><p><strong>Getting Started – Major steps involved in executing Process using Qruize Magic</strong></p>
+<p>a. Open the Qruize Magic web application and login as a TENANT ADMIN.</p>
+<p>b. Create a new process and upload the process (.zip) file.</p>
+<p>c. Map the user with that process and click on the Bundle and Submit button.</p>
+<p>d. Map the agent to the process, map the BOT to the process, and then publish the process.</p>
+<p>e. Run the BOT command in command prompt window.</p>
+<p>f. Switch over to the Agent role</p>
+<p>g. Upload the file that involves process execution and click on the BEGIN button to initiate the process automation.</p>
+<p>h. View the execution result in the results page.</p></li>
+</ol>
+<ol start="4">
+<li><p><strong>Steps involved in executing Process using Qruize Magic</strong></p>
+<p><strong>Tenant Admin Login</strong></p>
+<p>Step 1: Open the Qruize Magic application. Enter the valid username and password and then click on the <strong>LOGIN button</strong>.</p>
+<p><img src="/img/Runsample/1.jpg" alt="Login screen"></p>
+<p>Step 2: To create a new process, click on the <strong>TENANT ADMIN</strong> button in order to proceed with tenant admin role.</p>
+<p><img src="/img/Runsample/2.jpg" alt="Tenant screen"></p>
+<p>Step 3: To add a new process, select New Process from the Process Management dropdown.</p>
+<p><img src="/img/Runsample/3.jpg" alt="Process screen"></p>
+<p>Step 4: In the Add Process page, enter the process name, description and map the process to the project (if required). Select the <strong>“Do you want upload Process file?”</strong> check box and upload the process zip file.</p>
+<p><img src="/img/Runsample/4.jpg" alt="Add process"></p>
+<p>Step 5: To map the user with the newly created process, select the user from the User dropdown and click on the ADD USER button. Select the privilege(s) for the user by selecting the respective checkboxes. Then click on the BUNDLE &amp; SUBMIT button.</p>
+<p><img src="/img/Runsample/5.jpg" alt="Bundle Submit"></p>
+<p>Step 6: The Process file will be now moved to the <strong>BUNDLED</strong> section. The process can be executed only when it is published. So, click on the <strong>PUBLISH</strong> button.</p>
+<p><img src="/img/Runsample/6.jpg" alt="Publish screen"></p>
+<p>Step 7: First we need to map the agent to the process and then map the BOT to the process. Here we have mapped the process with the existing bot. So that the process can be only executed through the BOT mapped with it.
+To execute the process using your authorized credentials, you can provide your details in USERNAME and PASSWORD fields which is assigned as the <strong>&quot;run time input parameter&quot;</strong> for BOT execution. For an agent, it is possible to map multiple bots for a single process. Here you can provide separate credentials as run time input parameter.</p>
+<p><img src="/img/Runsample/7.jpg" alt="Process map"></p>
+<p>Click on the PUBLISH button to publish the process.
+Now the Published process is listed out.</p>
+<p><img src="/img/Runsample/8.jpg" alt="My process screen"></p>
+<p>Fork Process will help you to replace the old process zip file with the new one. Once you click the CONFIRM button, the process gets forked and listed under the CONSTRUCTION menu. Click on the edit icon to upload the updated process zip file, bundle it, and then publish it.</p>
+<p><img src="/img/Runsample/9.jpg" alt="Fork screen"></p>
+<p>Step 8: If you want map the process with a new bot, you need to create a new bot. To do this, click on the Process Management tab and select Bot List from the dropdown menu. In the page that appears click on the ADD BOT button. Now the Add BOT page will appear.</p>
+<p><img src="/img/Runsample/10.jpg" alt="Add BOT"></p>
+<p>After entering BOT name and description details, select BOT Type as “Standard” and SUB BOT Type as “Floating”. Then click on the ADD button.</p>
+<p>Now the BOT is created and listed as shown below. Note down the BOT key.</p>
+<p><img src="/img/Runsample/11.jpg" alt="BOT List"></p>
+<p>Step 9: <strong>Initiate the BOT.</strong></p>
+<p><img src="/img/Runsample/12.jpg" alt="Initiate BOT"></p></li>
+</ol>
+<p><strong>Agent Login</strong></p>
+<p>Step 1: You will receive a mail provided with login credentials for Agent role and a BOT key. Now login to the Qruize Magic application as an <strong>Agent</strong>.</p>
+<p><img src="/img/Runsample/13.jpg" alt="Agent login"></p>
+<p>Select <strong>Bot Configuration</strong> tab. In the <strong>BOT License Key</strong> field, paste the BOT key which was generated during the BOT creation using Tenant Admin. Click on the <strong>CONFIGURE</strong> button.</p>
+<p><img src="/img/Runsample/14.jpg" alt="BOT Config"></p>
+<p>Step 2: To execute the RPA, select <strong>My Process</strong> tab at the top, the list of process will appear. Click on the <strong>EXECUTE</strong> button of the process you want to execute.</p>
+<p><img src="/img/Runsample/15.jpg" alt="Agent Process"></p>
+<p>Step 3: Now the <strong>Execute Process</strong> page will appear. Map the BOT which was created by Tenant Admin. Once the BOT is selected, the RUN TIME OPTIONS section will be enabled along with USERNAME and PASSWORD.</p>
+<p>In the RUNTIME INPUT ARGUMENTS section, enter the Excel password and click on the Upload button to upload the excel file. Click on the <strong>BEGIN</strong> button to execute the process automation.</p>
+<p><img src="/img/Runsample/16.jpg" alt="Execute process"></p>
+<p>Step 4: Once the execution is completed, you can see the result status by clicking on the <strong>Results</strong> tab. The process execution result will be listed along with start and end time. You can view the log details by clicking on the <strong>info</strong> icon.</p>
+<p><img src="/img/Runsample/17.jpg" alt="Tenant screen"></p>
+<ol start="5">
+<li><strong>Conclusion</strong>
+This document covers the steps for uploading and executing process on Qruize Magic application. This document will be enhanced to add more required technology components and release in various document versions.</li>
+</ol>
+<p><strong><u>Disclaimer</u></strong>:
+No part of this document can be reproduced, transferred, distributed or stored in any format without the prior written permission from Qruize Technologies Pvt. Ltd.</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/doc3"><span class="arrow-prev">← </span><span>How to Use and Install QM</span></a><a class="docs-next button" href="/docs/doc5"><span>How to Build a Automation Process?</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.png" alt="Qruize Magic" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://qruize.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="QruizeFacebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Qruize Inc</section></footer></div></body></html>

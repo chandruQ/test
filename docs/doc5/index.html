@@ -1,0 +1,1764 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Qruize Magic - Creation of an Automation Process · Qruize Magic</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## &lt;u&gt;Prerequisites&lt;/u&gt; ##"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Qruize Magic - Creation of an Automation Process · Qruize Magic"/><meta property="og:type" content="website"/><meta property="og:url" content="https://chandruQ.github.io/"/><meta property="og:description" content="## &lt;u&gt;Prerequisites&lt;/u&gt; ##"/><meta property="og:image" content="https://chandruQ.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://chandruQ.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://chandruQ.github.io/blog/atom.xml" title="Qruize Magic Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://chandruQ.github.io/blog/feed.xml" title="Qruize Magic Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qruize Magic"/><h2 class="headerTitleWithLogo">Qruize Magic</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/doc" target="_self">Docs</a></li><li class=""><a href="/docs/doc11" target="_self">API</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>QruizeMagic</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">QruizeMagic</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/doc">About QruizeMagic</a></li><li class="navListItem"><a class="navItem" href="/docs/doc1">QM in Business Model</a></li><li class="navListItem"><a class="navItem" href="/docs/doc2">How to Deploy QM (On-Premise)</a></li><li class="navListItem"><a class="navItem" href="/docs/doc3">How to Use and Install QM</a></li><li class="navListItem"><a class="navItem" href="/docs/doc4">How to Run Sample Process?</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/doc5">How to Build a Automation Process?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc6">How to Develop a Custom Plugin?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc7">Third party integrated service</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Qruize Magic - Creation of an Automation Process</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="uprerequisitesu"></a><a href="#uprerequisitesu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>Prerequisites</u></h2>
+<h3><a class="anchor" aria-hidden="true" id="uabout-the-documentu"></a><a href="#uabout-the-documentu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>About the Document</u></h3>
+<p>This document helps you to understand different actions available in Qruize Magic.</p>
+<h3><a class="anchor" aria-hidden="true" id="uwhat-is-a-json-fileu"></a><a href="#uwhat-is-a-json-fileu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>What is a JSON File?</u></h3>
+<p>JSON is a file that stores simple data structures and objects in JavaScript Object Notation (JSON) format, which is a standard data interchange format. It is primarily used for performing automation in web, desktop and mobile applications. JSON files are lightweight, text-based, human-readable, and can be edited using a text editor.</p>
+<h3><a class="anchor" aria-hidden="true" id="ujson-structure-u"></a><a href="#ujson-structure-u" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>JSON Structure </u></h3>
+<p>The standard Json structure looks like:</p>
+<pre><code class="hljs">&quot;StepName&quot;: 
+{
+    &quot;Key1&quot;:&quot;Value1&quot;,
+    &quot;Key2&quot;: &quot;Value2&quot;,
+     . . . .
+    &quot;KeyN&quot;: &quot;ValueN&quot;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="umajor-components-of-the-qruize-magic-folderu"></a><a href="#umajor-components-of-the-qruize-magic-folderu" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><u>Major Components of the Qruize Magic Folder</u></h3>
+<p>Below are the important folders and files present in the Qruize Magic folder.</p>
+<p>a. <strong>.qm,</strong> b. <strong>config,</strong> c. <strong>lib,</strong> d. <strong>logs,</strong> e. <strong>bat,</strong> f. <strong>Executable Jar file (QruizeMagic-Robot-Service-v2.0.12.1),</strong> g. <strong>Zip.jar,</strong> h. <strong>process</strong> and i. <strong>temp</strong>.</p>
+<p>Let us see each and every items in detail.</p>
+<p><strong>.qm</strong>:
+This folder consists of plugins that require for executing the process. Each plugin consists of classes and libraries for the respective functionality. To use any Plugin actions for creating a process, you are required to add respective plugin details with version in the profile.json file.</p>
+<p><strong>Config</strong>:
+This folder consists of two major files,</p>
+<p><strong>I.</strong> Application.properties - It consists of property fields that is to be used as input for the bot agent.</p>
+<p>Below is the sample of an Application configuration file</p>
+<pre><code class="hljs">-------------Application Configuration---------------------
+#Robot Server port config
+spring.application.name=robot 
+server.port = 9090 //tomcat is started on the mentioned port
+
+#configuration server details
+spring.cloud.config.uri=http://13.233.248.152:8182 //the uri of the platform configuration 
+service that you want to connect with.
+robot.customplugin.path=plugin 
+
+#Scheduler Config  //this is java auto scheduler which will run at the scheduled time.
+tenant.id = 210 
+process.name = processname
+schedule.time = 300000 //time in milli second, within this given time interval the scheduled
+process will run.
+process.scheduler = false //true, if you want auto scheduler feature.
+
+
+
+#auto //To fetch the key automatically. Here, the fetching of dynamic key will take place and 
+no manual key configuration at startup is required. 
+E.g. On conditions like ECS environment.
+key.entry=static //make it dynamic if you want this feature.
+
+key.authenticate.url=n/a //the url of the key service.
+
+key.fetch.url=n/a //the url of the key service to fetch the key.
+
+key.return.url=n/a //the url of the key service to return the key.
+
+key.username=n/a //the username allotted for auto key feature.
+
+key.password=n/a //the password allotted for auto key feature.
+
+auto.process.name= n/a //the process name.
+
+auto.tenant.id = n/a //the tenant id allotted.
+
+auto.result.update = false //true if you want to see result update in platform.
+
+auto.result.update.variable.name = n/a //the variable name to store result id.
+
+#Plugin List - Studio //the list of plugins for studio purpose only
+plugin.list = msoffice.actions:v1.0.0.3,pdf.actions:v1.0.0.1,ocr.actions:v1.0.0.6,
+mail.actions:v1.0.0.5
+</code></pre>
+<p><strong>II. Key</strong> - This file contains the license key which configured to the process.</p>
+<p><strong>lib</strong>:
+This folder contains driver files of different browsers.</p>
+<p>Eg: chromedriver for Chrome browser and geckodriver for Firefox.
+It also contains library files that required for your process creation. For Eg: If you want extract details from PDF, then you can add the tesseract library inside this folder.</p>
+<p><strong>logs</strong>:
+This folder contains the log information of the executed processes along with the timestamp.</p>
+<p><strong>.bat file</strong>:
+Double click on the batch file will initiate the Bot agent in your system.</p>
+<p><strong>zip.jar</strong>:
+Once the process is created, you are required to zip the process folder. Only then you can upload it in QM portal.</p>
+<p>C:\QruizeMagic&gt;java -jar zip.jar C:\QruizeMagic\process\PDFextraction process</p>
+<p><strong>temp</strong>:
+During bot agent runtime, the temporary files will be stored inside this folder.</p>
+<p><strong>Process</strong>:
+You required to upload Process.zip file in QruizeMagic platform. This Process file consists of Script folder, variable folder, profile.json file, and Main.json file.
+Once the Process execution is initiated, as a first step, the profile.json file will be processed by the bot. Let us now see the components one by one.</p>
+<p>a) <strong>profile.json</strong>:
+This json file expresses plugin dependencies required, any run time input parameters used, password encryption flag, and execution trigger types.</p>
+<p>Following is the sample <strong>profile.json</strong> file structure with description.</p>
+<table>
+<thead>
+<tr><th>Fields in profile.json</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>{</td><td>Initializing profile.json</td></tr>
+<tr><td>&quot;name&quot;: &quot;QMProcess&quot;,</td><td>Name of the process</td></tr>
+<tr><td>&quot;description&quot;: &quot;welome to qruizemagic process creation&quot;,</td><td>Process description</td></tr>
+<tr><td>&quot;main&quot;: &quot;Main.json&quot;,</td><td>Initializing Main.json file</td></tr>
+<tr><td>&quot;processDefinitionVersion&quot;: &quot;1.0.2&quot;,</td><td>The version of the process is defined here. If any changes done in the process then the version need to be changed</td></tr>
+<tr><td>&quot;dependencies&quot;: [</td><td>Plugin dependency part start here. All the required plugins along with version should be mentioned inside this.</td></tr>
+<tr><td>&quot;OCR_actions:v1.0.0.2&quot;,</td><td>Plugin used for this process and version detail of the plugin. Every version has some additional features in it. Based on the client requirement the version will be provided</td></tr>
+<tr><td>&quot;web_ui_actions:v1.0.0.11&quot;</td><td>Plugin used for this process and version detail of the plugin.</td></tr>
+<tr><td>],</td><td>Plugin dependency part is closing here.</td></tr>
+<tr><td>&quot;runtimeOptions&quot;: {</td><td>Initializing runtime options</td></tr>
+<tr><td>&quot;runtimeInputParam&quot;: [{ &quot;field&quot;: &quot;Receivermail_ID&quot;, &quot;type&quot;: &quot;text&quot;, &quot;isEncrypt&quot;: true } ],</td><td>You can use this argument when you want to provide the input only at the time of process upload. For eg: If you want to send the report to certain mail id(s) then you need to provide the receiver mail ID in the Receivermail_ID field</td></tr>
+<tr><td>&quot;elicitOptions&quot;: {</td><td>Initializing elicit options</td></tr>
+<tr><td>&quot;triggerType&quot;: &quot;API&quot;,</td><td>Trigger type used for process execution. “API” is for initiating process execution using button click. “SCHEDULER” is used to schedule the process to run at user specific time without manual trigger</td></tr>
+<tr><td>&quot;IsAttachmentRequired&quot;: true,</td><td>To check whether the attachment is required for this process. “True” defines this process requires attachment and “False” defines no attachment required</td></tr>
+<tr><td>&quot;AttachmentTypes&quot;:[&quot;jpg&quot;],</td><td>The file type of the attachment</td></tr>
+<tr><td>&quot;arguments&quot;: [{ &quot;field&quot;: &quot;portal_username&quot;, &quot;type&quot;: &quot;text&quot;, }, { &quot;field&quot;: &quot;portal_password&quot;, &quot;type&quot;: &quot;password&quot;, }]</td><td>If you want to run the process with changeable input for every execution, you can use this argument. This will enable the argument option in QM platform. For eg: This helps you to execute the same process with different login credentials</td></tr>
+<tr><td>} } }</td><td>Closing of elicit option, runtime option and profile.json</td></tr>
+</tbody>
+</table>
+<p>b) <strong>Main.json</strong>:
+Main.json and the files inside the script folder play a major role in process execution. It sets the entry point for your RPA automation. This file consists of high level steps that involve in process execution in a structured way.</p>
+<p>Example: For sending mail from a gmail account to different mail ids, the following major steps should be used.</p>
+<p><strong>i. OpenBrowser</strong> – To open the browser</p>
+<p><strong>ii. Login</strong> – Enter valid username and password</p>
+<p><strong>iii. Compose Mail</strong> – Mail composing includes set details in To, CC and Subject, and mail content fields. Click on the Send button.**</p>
+<p><strong>iv. Logout</strong> – Logout from gmail account</p>
+<p><strong>i. OpenBrowser</strong>:
+Here is the sample script used for opening the gmail browser in the Main.json where the script itself contain the complete functionality for opening browser.</p>
+<p>Open the web browser</p>
+<table>
+<thead>
+<tr><th>Fields</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>&quot;OpenBrowser&quot;:</td><td>Unique             step name</td></tr>
+<tr><td>{</td><td></td></tr>
+<tr><td>&quot;referenceId&quot;:&quot;M4CR-9FZW-5U8G-N2P3&quot;,</td><td>Unique             ID of the plugin. Each plugin has different ID. Based on this ID            the plugin will be redirected.</td></tr>
+<tr><td>&quot;category&quot;:            &quot;Web UI Actions&quot;,</td><td>Category           of a plugin</td></tr>
+<tr><td>&quot;subCategory&quot;:&quot;Selenium&quot;,</td><td>Denotes            that the selenium actions were used</td></tr>
+<tr><td>&quot;actionType&quot;:          &quot;OpenBrowser&quot;,</td><td>declaring          the action name as OpenBrowser</td></tr>
+<tr><td>&quot;browserType&quot;:             &quot;chrome&quot;,</td><td>the            browser type you want to open the URL</td></tr>
+<tr><td>&quot;url&quot;:             &quot;<a href="https://gmail.com">https://gmail.com</a>&quot;,</td><td>URL            you want to open</td></tr>
+<tr><td>&quot;scope&quot;:           &quot;ACTION&quot;</td><td>Here           in this above script, the scope is declared as ACTION,          so the section contains the complete functionality of opening the           browser.</td></tr>
+<tr><td>}</td><td></td></tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: Here in this above script, the scope is declared as ACTION, so the section contains the complete functionality of opening the browser.</p>
+<p><strong>ii. Login</strong>:
+Following is the script used in the Main.json for Gmail login where the script contains only the path of the of the script which actually used for login.
+If the scope is declared as GROUP, then the file inside the script folder will get executed.</p>
+<p>Login to the gmail</p>
+<table>
+<thead>
+<tr><th>Fields</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>&quot;Login&quot;:           {</td><td></td></tr>
+<tr><td>&quot;referenceId&quot;:&quot;M4CR-9FZW-5U8G-N2P3&quot;,</td><td>Unique             ID of the plugin. Each plugin has different ID. Based on this ID            the plugin will be redirected.</td></tr>
+<tr><td>&quot;category&quot;:            &quot;Web UI Actions&quot;,</td><td>Category           of a plugin</td></tr>
+<tr><td>&quot;subCategory&quot;:&quot;Selenium&quot;,</td><td></td></tr>
+<tr><td>&quot;scriptPath&quot;:          &quot;/script/login.json&quot;,</td><td>Path           of actual script file</td></tr>
+<tr><td>&quot;scope&quot;:           &quot;GROUP&quot;</td><td>If             the scope is declared as GROUP,             then the file inside the script             folder will get executed. Only the path of the file to be executed          is declared in the Main.json file.</td></tr>
+<tr><td>}</td><td></td></tr>
+</tbody>
+</table>
+<p>Only the path of the file to be executed is declared in the Main.json file.</p>
+<p>Following are the actual script file contains gmail login functionality.</p>
+<p><strong>Wait till</strong> the specific element appears</p>
+<table>
+<thead>
+<tr><th>Fields</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>&quot;wait_elementVisible1&quot;:            {</td><td></td></tr>
+<tr><td>&quot;referenceId&quot;:             &quot;M4CR-9FZW-5U8G-N2P3&quot;,</td><td>Reference          ID of the wait action</td></tr>
+<tr><td>&quot;category&quot;:            &quot;Web UI Actions&quot;,</td><td></td></tr>
+<tr><td>&quot;subCategory&quot;:             &quot;Selenium&quot;,</td><td></td></tr>
+<tr><td>&quot;actiontype&quot;:          &quot;wait&quot;,</td><td></td></tr>
+<tr><td>&quot;scope&quot;:           &quot;ACTION&quot;,</td><td></td></tr>
+<tr><td>&quot;executionType&quot;:           &quot;Driver&quot;,</td><td>Execution          type allows the developer to assign the execution method for the            intended automation event. ‘Driver’ - To make direct calls to           the browser using the browser’s native support (Locators) and           ‘Script’ – To use ‘JavaScript Executor’</td></tr>
+<tr><td>&quot;selectType&quot;:          &quot;Condition&quot;,</td><td></td></tr>
+<tr><td>&quot;conditions&quot;:          [{</td><td></td></tr>
+<tr><td>&quot;attr&quot;:            &quot;XPATH&quot;,</td><td>Defining           attribute in the JSON will enable the bot to find and match the             elements in your web page that it needs to interact during the          automation. The various attributes you can define includes ID,          xpath, CSS, or script</td></tr>
+<tr><td>&quot;value&quot;:           &quot;//*[@id=&quot;identifierId&quot;]&quot;,</td><td>Value          helps in defining / specifying the equivalent value from the            webpage for the defined attribute (E.g. XPath, ID, CSS,             Javascript, etc)</td></tr>
+<tr><td>&quot;selectType&quot;:          &quot;visibilityWait&quot;,</td><td></td></tr>
+<tr><td>&quot;delayInMinutes&quot;:          &quot;5&quot;</td><td></td></tr>
+<tr><td>}]              }</td><td></td></tr>
+</tbody>
+</table>
+<p>Enter <strong>user name</strong> in the field</p>
+<table>
+<thead>
+<tr><th>Fields</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>&quot;Username&quot;:            {</td><td></td></tr>
+<tr><td>&quot;attr&quot;:            &quot;XPATH&quot;,</td><td></td></tr>
+<tr><td>&quot;referenceId&quot;:             &quot;M4CR-9FZW-5U8G-N2P3&quot;,</td><td></td></tr>
+<tr><td>&quot;category&quot;:            &quot;Web UI Actions&quot;,</td><td></td></tr>
+<tr><td>&quot;subCategory&quot;:             &quot;Selenium&quot;,</td><td></td></tr>
+<tr><td>&quot;scope&quot;:           &quot;ACTION&quot;,</td><td></td></tr>
+<tr><td>&quot;applicantkey&quot;:            &quot;<a href="mailto:name@gmail.com">name@gmail.com</a>&quot;,</td><td>Applicant          key is a property used to get a value from application and save it          as a variable. You can use this value in required place. Eg.            Insert the value in excel. If any variable created while writing            automation steps, you can declare those variable in Variables JAVA          file and compile it into CLASS file. Four different ways for set a          value.                           1.             “<a href="mailto:name@gmail.com">name@gmail.com</a>”            – Hard code input,                           2.             #datagrid(variableName)             –           It will retrieve the value from variable,                        3.             #runtimeinput(variableName)             –           It will get the value from runtimeInputParam (.profile.json) only           at the time of process upload                        4.             #arguments(variableName)            –           arguments is used when the process have changeable inputs for           every execution. This will enable the argument option in QM             platform.</td></tr>
+<tr><td>&quot;value&quot;:           &quot;//*[@id=&quot;identifierId&quot;]&quot;,</td><td></td></tr>
+<tr><td>&quot;actiontype&quot;:          &quot;setText&quot;,</td><td>Action             is used to set the value in the field</td></tr>
+<tr><td>&quot;executionType&quot;:           &quot;Driver&quot;</td><td></td></tr>
+<tr><td>}</td><td></td></tr>
+</tbody>
+</table>
+<p>Click on the <strong>Next button</strong> after entering the user name</p>
+<table>
+<thead>
+<tr><th>Fields</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>&quot;ClickNextUID&quot;:            {</td><td></td></tr>
+<tr><td>&quot;referenceId&quot;:             &quot;M4CR-9FZW-5U8G-N2P3&quot;,</td><td></td></tr>
+<tr><td>&quot;category&quot;:            &quot;Web UI Actions&quot;,</td><td></td></tr>
+<tr><td>&quot;subCategory&quot;:             &quot;Selenium&quot;,</td><td></td></tr>
+<tr><td>&quot;scope&quot;:           &quot;ACTION&quot;,</td><td></td></tr>
+<tr><td>&quot;attr&quot;:            &quot;XPATH&quot;,</td><td></td></tr>
+<tr><td>&quot;value&quot;:           &quot;//*[@id= ‘identifierNext’]&quot;,</td><td></td></tr>
+<tr><td>&quot;actiontype&quot;:          &quot;click&quot;,</td><td>Click          action type is used to click the next button</td></tr>
+<tr><td>&quot;executionType&quot;:           &quot;Driver&quot;</td><td></td></tr>
+<tr><td>}</td><td></td></tr>
+</tbody>
+</table>
+<p>Entering the <strong>password</strong> in the password field</p>
+<table>
+<thead>
+<tr><th>Fields</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>&quot;Password&quot;:            {</td><td></td></tr>
+<tr><td>&quot;attr&quot;:            &quot;XPATH&quot;,</td><td></td></tr>
+<tr><td>&quot;referenceId&quot;:             &quot;M4CR-9FZW-5U8G-N2P3&quot;,</td><td></td></tr>
+<tr><td>&quot;category&quot;:            &quot;Web UI Actions&quot;,</td><td></td></tr>
+<tr><td>&quot;subCategory&quot;:             &quot;Selenium&quot;,</td><td></td></tr>
+<tr><td>&quot;scope&quot;:           &quot;ACTION&quot;,</td><td></td></tr>
+<tr><td>&quot;applicantkey&quot;:            &quot;password&quot;, or #datagrid(variableName), or               #runtimeinput(variableName),           or #arguments(variableName)</td><td>Four           different ways for set a value. 1. “password”           – Hard code input, 2. #datagrid(variableName)           –           It will retrieve the value from variable, and 3.            #runtimeinput(variableName)             –           It will get the value from runtimeInputParam (.profile.json) only           at the time of process upload and 4. #arguments(variableName)           –           arguments is used when the process have changeable inputs for           every execution. This will enable the argument option in QM             platform.</td></tr>
+<tr><td>&quot;value&quot;:           &quot;//*[@id=&quot;password&quot;]/div[1]/div/div[1]/input&quot;,</td><td></td></tr>
+<tr><td>&quot;actiontype&quot;:          &quot;setText&quot;,</td><td></td></tr>
+<tr><td>&quot;executionType&quot;:           &quot;Driver&quot;</td><td></td></tr>
+<tr><td>}</td><td></td></tr>
+</tbody>
+</table>
+<p>Click on the <strong>Next button</strong> after entering the <strong>password</strong></p>
+<pre><code class="hljs">&quot;ClickNextUID&quot;: {
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;value&quot;: &quot;//*[@id= ‘passwordNext’]&quot;,
+&quot;actiontype&quot;: &quot;click&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+}
+</code></pre>
+<p><strong>iii. ComposeMail</strong>: Click on the <strong>compose mail</strong> button</p>
+<pre><code class="hljs">&quot;ClickComposeMailBTN&quot;: {
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;value&quot;: &quot;//*[@id=&quot;composeMail&quot;]&quot;,
+&quot;actiontype&quot;: &quot;click&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+} 
+</code></pre>
+<p>Enter <strong>mail id</strong> in the <strong>TO</strong> field</p>
+<pre><code class="hljs">&quot;Tomail&quot;: {
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;documentGridKey&quot;: &quot;toname@gmail.com&quot;,
+&quot;value&quot;: &quot;//*[@id=&quot;ToMail&quot;]&quot;,
+&quot;actiontype&quot;: &quot;setText&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+}
+</code></pre>
+<p>Enter <strong>mail subject</strong> in the Subject field
+Fields</p>
+<pre><code class="hljs">&quot;Mailsubject&quot;: {
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;documentGridKey&quot;: &quot;MailSubject&quot;, 
+&quot;value&quot;: &quot;//*[@id=&quot;Subject&quot;]&quot;,
+&quot;actiontype&quot;: &quot;setText&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+}
+</code></pre>
+<p>Enter <strong>mail Content</strong> in the respective field
+Fields</p>
+<pre><code class="hljs">&quot;Mailcontent&quot;: {
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;documentGridKey&quot;: &quot;MailContent&quot;, 
+&quot;value&quot;: &quot;//*[@id=&quot;Subject&quot;]&quot;,
+&quot;actiontype&quot;: &quot;setText&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+}
+</code></pre>
+<p>Click on the <strong>Send</strong> button
+Fields</p>
+<pre><code class="hljs">&quot;ClickSend&quot;: {
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;value&quot;: &quot;//*[@id=&quot;SendMail&quot;]&quot;,
+&quot;actiontype&quot;: &quot;click&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+}
+</code></pre>
+<p><strong>iv. Logout</strong>:
+Click on the <strong>Menu</strong> button
+Fields</p>
+<pre><code class="hljs">&quot;ClickMenu&quot;: {
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;value&quot;: &quot;//*[@id=&quot;menubutton&quot;]&quot;,
+&quot;actiontype&quot;: &quot;click&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+} 
+</code></pre>
+<p>Click on the <strong>Logout</strong> button from the Menu
+Fields</p>
+<pre><code class="hljs">&quot;ClickLogout&quot;: {
+&quot;attr&quot;: &quot;XPATH&quot;,
+&quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+&quot;category&quot;: &quot;Web UI Actions&quot;,
+&quot;subCategory&quot;: &quot;Selenium&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;value&quot;: &quot;//*[@id=&quot;Logout&quot;]&quot;,
+&quot;actiontype&quot;: &quot;click&quot;,
+&quot;executionType&quot;: &quot;Driver&quot;
+} 
+</code></pre>
+<p><strong>c) script Folder</strong>
+This folder consists of the actual script file(s) in JSON where the path is given in main.json.
+Instead of writing all the steps in mail.json, you can write all steps in .json files  and place it inside the script folder. Further you should specify the path along with process name in main.json.
+Eg: &quot;scriptPath&quot;: &quot;/script/FillingtheOnlineForm.json&quot;, //path of actual script file</p>
+<p><strong>d) variable Folder</strong>
+This folder consists com, io folders and PluginFunction and Variables JAVA files. If any variable created while writing automation steps, you can declare those variable in this Variables JAVA file and compile it into CLASS file. com and io folders consists of library files, and PluginFunction file are required for compiling the variables.JAVA file.</p>
+<p><strong>e) Exception.json</strong>
+This file contains the json steps which will be executed when exception occur during process execution. While creating the process steps in json, exception script should be added as shown below.</p>
+<pre><code class="hljs">    &quot;onError&quot;: [
+        &quot;create_datatable1&quot;,
+        &quot;add_header_1&quot;,
+        &quot;add_row,Get_property&quot;,
+        &quot;Write_to_excel&quot;,
+        &quot;sendNotificationMail&quot;
+    ], 
+</code></pre>
+<p><strong>4. Action type</strong>: Action type is a property to define the required mouse and keyboard events, to be executed on web, desktop, mobile applications. The various action type supported is listed in the below section.</p>
+<p><strong>Supported Actions</strong></p>
+<p><strong>Web UI Automation Plugin</strong></p>
+<table>
+<thead>
+<tr><th>No</th><th>Action             Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>OpenBrowser</td><td>This           will help you to open the browser</td></tr>
+<tr><td>2</td><td>wait</td><td>It             makes webdriver to wait for certain time before proceeding to the           next action.             Following          three conditions are available for the wait action.              Visibility             wait            is like explicit wait which will wait till some pre built           condition become true. Eg. Wait for elements to become clickable,           visible, invisible, etc. Maximum time out should be given in            delayInMinutes parameter.            LoadingMinutes             will wait for default time of 2 seconds.             isDocumentReady            will            wait till the last element get loads in the webpage.</td></tr>
+<tr><td>3</td><td>setText</td><td>It             will set the value in the input field.</td></tr>
+<tr><td>4</td><td>selectItem</td><td>It             will select one or multiple options from a dropdown list.</td></tr>
+<tr><td>5</td><td>getText</td><td>It             will fetch data from the application and stores it as a variable.           The variable name should be mentioned as applicant key.</td></tr>
+<tr><td>6</td><td>click</td><td>It             will click on the UI element with respect to the attribute given.           It is same as the mouse left click on the required element.</td></tr>
+<tr><td>7</td><td>Hoverclick</td><td>It             will click on the mouse hover element. It will trigger the base             element first and then click on the hover element.</td></tr>
+<tr><td>8</td><td>doubleClick</td><td>It             will double click on the UI element with respect to the attribute           given. It is same as placing mouse pointer on the required element          and clicking the mouse left button twice.</td></tr>
+<tr><td>9</td><td>hover</td><td>It             will move the mouse from its current position to the given offset           (Horizontal and Vertical) position. It is similar to mouse hover            on an element.</td></tr>
+<tr><td>10</td><td>switchToWindow</td><td>It             will switch our focus control from one window to another window.            Usually, it is used to switch over from main window to newly            opened window.</td></tr>
+<tr><td>11</td><td>Enter</td><td>It             will press the enter key through selenium webdriver. It is similar          to pressing the enter button in the keyboard.</td></tr>
+<tr><td>12</td><td>focusEnter</td><td>It             will move on to the specific element and click on it.</td></tr>
+<tr><td>13</td><td>NavigateElement</td><td>It             will move the focus from one element to another. It is similar to           pressing the TAB button in keyboard.</td></tr>
+<tr><td>14</td><td>selectradio</td><td>Handles            togging of radio button.</td></tr>
+<tr><td>15</td><td>selectcheckbox</td><td>Method             to toggle a check box on/off  and to handle multiple sections.</td></tr>
+<tr><td>16</td><td>findElement</td><td>It             is If-else conditional action. If the element is present, then it           will follow the actions in elementPresent Array. Else it will           follow the actions in elementNotPresent array.</td></tr>
+<tr><td>17</td><td>elementLooping</td><td>It             will iterate certain process with respect to the value given.</td></tr>
+<tr><td>18</td><td>scroll</td><td>It             will scroll up/down/right/left the webpage.</td></tr>
+<tr><td>19</td><td>typeText</td><td>It             will enter the given data in the field where the cursor is          presently located.</td></tr>
+<tr><td>20</td><td>sendKey</td><td>It             is similar to clicking on the Enter/TAB from current location.          Enter or Tab name should be specified in sub action type.</td></tr>
+<tr><td>21</td><td>clearText</td><td>It             will clear the existing text in the field.</td></tr>
+<tr><td>22</td><td>switchtoIframe</td><td>It             will switch from one iframe to another</td></tr>
+<tr><td>23</td><td>AcceptAlertWindow</td><td>It             will click the OK button from the popup that appears.</td></tr>
+<tr><td>24</td><td>Script</td><td>This           action helps you to write your own java script.</td></tr>
+<tr><td>25</td><td>Criteria           Script</td><td>This           action helps you to execute the java script based on specified          criteria.</td></tr>
+</tbody>
+</table>
+<p><strong>Core Actions</strong></p>
+<table>
+<thead>
+<tr><th>No</th><th>Action             Name</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>26</td><td>Screenshot</td><td>It             will take the print screen of webpage.</td></tr>
+<tr><td>27</td><td>Loop</td><td>It             will execute a set of instruction repeatedly until some condition           are fulfilled.</td></tr>
+<tr><td>28</td><td>If</td><td>It             will execute a set of instruction if a specified condition is           true.</td></tr>
+<tr><td>29</td><td>While</td><td>It             will repeatedly execute a set of instruction until the given            condition is true.</td></tr>
+<tr><td>30</td><td>Display            Message</td><td>It             will display the predefined response message in UI after specific           task was completed.</td></tr>
+<tr><td>31</td><td>Set            Variable</td><td>This           action is used to set the value for already defined variable.</td></tr>
+<tr><td>32</td><td>GUID</td><td>This           action is used to set the value for already defined variable.</td></tr>
+<tr><td>33</td><td>Create             Datatable</td><td>This           action is used to create a datatable during process execution</td></tr>
+</tbody>
+</table>
+<p><strong>MS office Plugin</strong></p>
+<table>
+<thead>
+<tr><th>No</th><th>Action             Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>34</td><td>Read           Data</td><td>Subcategory            – word, it will fetch data from MS word file.</td></tr>
+<tr><td>35</td><td>Write          Range</td><td>Subcategory            – excel, it will write data into MS Excel file.</td></tr>
+<tr><td>36</td><td>Read           Data – Cell Merge</td><td>It             will merge the cells in MS excelsheet.</td></tr>
+<tr><td>37</td><td>Read           Data – Cell unmerge</td><td>It             will unmerge all the merged cells in MS excelsheet.</td></tr>
+<tr><td>38</td><td>Read           Data – Read Cell</td><td>It             will read the data from a specified cell.</td></tr>
+<tr><td>39</td><td>Read           Data – Read Row</td><td>It             will read the data from a specified excel row.</td></tr>
+<tr><td>40</td><td>Read           Data – Read Column</td><td>It             will read the data from a specified excel column.</td></tr>
+<tr><td>41</td><td>Read           Data – Read Column</td><td>It             will read the data from the excel columns based on range            specified.</td></tr>
+<tr><td>42</td><td>Read           Data – Read Range</td><td>It             will read the data from the specified range from the excel sheet.</td></tr>
+</tbody>
+</table>
+<p><strong>Mail Plugin</strong></p>
+<table>
+<thead>
+<tr><th>No</th><th>Action             Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>43</td><td>Get            Mail</td><td>It             is used to download file attachments from the email.</td></tr>
+<tr><td>44</td><td>Send           Mail</td><td>It             is used to send mail (with/without attachments) to specific mail            id.</td></tr>
+<tr><td>45</td><td>Check          Mail</td><td>It             is used to check the mail based on the Subject text given.</td></tr>
+</tbody>
+</table>
+<p><strong>OCR Plugin</strong></p>
+<table>
+<thead>
+<tr><th>No</th><th>Action             Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>46</td><td>Read           Data</td><td>Subcategory            - Abbyy Cloud</td></tr>
+<tr><td>47</td><td>Read           Data</td><td>Subcategory            - Accura Scan</td></tr>
+</tbody>
+</table>
+<p><strong>PDF Plugin</strong></p>
+<table>
+<thead>
+<tr><th>No</th><th>Action             Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>48</td><td>READ PDF DATA - Tesseract</td><td>It will fetch data from any image file.</td></tr>
+<tr><td>49</td><td>READ PDF DATA - ITEXT</td><td>It will fetch data from clear and          proper PDF file and it will not fetch data from scanned PDF.</td></tr>
+<tr><td>50</td><td>READ PDF DATA – OCR space</td><td>It will fetch data from the PDF image          that presents in live web URL.</td></tr>
+</tbody>
+</table>
+<p>Let us now see the actions in detail.</p>
+<p><strong>4.1 UI Automation Plugin</strong>:</p>
+<p><strong>OpenBrowser</strong></p>
+<h6><a class="anchor" aria-hidden="true" id="json-format"></a><a href="#json-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;openBrowser&quot;:
+ {
+    &quot;referenceId&quot;:&quot;M4CR-9FZW-5U8G-N2P3&quot;,
+    &quot;category&quot;: &quot;Web UI Actions&quot;,
+    &quot;subCategory&quot;:&quot;Selenium&quot;,
+    &quot;actionType&quot;: &quot;OpenBrowser&quot;,
+    &quot;browserType&quot;: &quot;chrome&quot;,
+    &quot;url&quot;: &quot;https://www.gmail.com/&quot;,
+    &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>wait</strong>: It makes webdriver to wait for certain time before proceeding further in the code.
+We have used following three conditions for the wait action.</p>
+<p><strong>a. Visibility wait</strong>: will wait till the element appears. Maximum time out should be given in delayInMinutes parameter.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-1"></a><a href="#json-format-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;Visibility_wait&quot;: {
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+        &quot;category&quot;: &quot;Web UI Actions&quot;,
+        &quot;subCategory&quot;: &quot;Selenium&quot;,
+        &quot;actiontype&quot;: &quot;wait&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot;,
+        &quot;scope&quot;: &quot;ACTION&quot;,
+       &quot;selectType&quot;: &quot;Condition&quot;,
+        &quot;conditions&quot;: [{
+            &quot;attr&quot;: &quot;XPATH&quot;,
+            &quot;value&quot;: &quot;//*[@id=\&quot;form1\&quot;]/table/tbody//tbody/tr[1]/td/a&quot;,
+            &quot;selectType&quot;: &quot;VisibilityWait&quot;,
+            &quot;delayInMinutes&quot;: &quot;5&quot;,
+        }]
+    }
+</code></pre>
+<p><strong>b. LoadingMinutes</strong>: will wait for default time of 2 seconds.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-2"></a><a href="#json-format-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;LoadingMinutes&quot;: {
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+        &quot;category&quot;: &quot;Web UI Actions&quot;,
+        &quot;subCategory&quot;: &quot;Selenium&quot;,
+        &quot;actiontype&quot;: &quot;wait&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot;,
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;conditions&quot;: [{
+            &quot;selectType&quot;: &quot;LoadingMinutes&quot;
+   }]
+   }
+</code></pre>
+<p><strong>c. isDocumentReady</strong>: will wait till the last element get loads in the webpage.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-3"></a><a href="#json-format-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;IsDocument_Ready_Wait&quot;: {
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+        &quot;category&quot;: &quot;Web UI Actions&quot;,
+        &quot;subCategory&quot;: &quot;Selenium&quot;,
+        &quot;actiontype&quot;: &quot;wait&quot;,
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot;,
+        &quot;conditions&quot;: [{
+            &quot;selectType&quot;: &quot;isDocumentReady&quot;
+        }]
+    }
+</code></pre>
+<p><strong>setText</strong>: It will set the value in a text input field.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-4"></a><a href="#json-format-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;setText&quot;:
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;actiontype&quot;: &quot;setText&quot;, 
+        &quot;attr&quot;: &quot;id&quot;, 
+        &quot; applicantkey&quot;: &quot;username&quot;, 
+        &quot;value&quot;: &quot;txtLoginUserName&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>selectItem</strong>: It will select one or multiple options from a dropdown list.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-5"></a><a href="#json-format-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;selectItem&quot;: { 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;,
+        &quot;actiontype&quot;: &quot;selectItem&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+        &quot;applicantkeys&quot;: [&quot;permitType&quot;], 
+        &quot;value&quot;: &quot;html/body/form/select&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>getText</strong>: It will fetch data from the webpage and stored that data as a variable.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-6"></a><a href="#json-format-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;readAction&quot;:
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;actiontype&quot;: &quot;getText&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+        &quot;applicantkey&quot;: &quot;content&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;value&quot;: &quot;//*[@id=\&quot;headingSubtext\&quot;]/content&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>click</strong>: It will click on the UI element with respect to the attribute given. It is same as the mouse left click on the required element.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-7"></a><a href="#json-format-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;buttonclick&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+        &quot;value&quot;: &quot;//*[@id=\&quot;LoginDiv\&quot;]/div/div/input[2]&quot;, 
+        &quot;actiontype&quot;: &quot;click&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>Hoverclick</strong>: It will click on the mouse hover element.  It will trigger the base element first and then click on the hover element.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-8"></a><a href="#json-format-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;focusbuttonclick&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+        &quot;value&quot;: &quot;html/body/form/table[3]/tbody/tr[2]/input&quot;, 
+        &quot;actiontype&quot;: &quot;Hoverclick&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}  
+</code></pre>
+<p><strong>doubleClick</strong>: It will double click on the UI element with respect to the attribute given. It is same as placing mouse pointer on the required element and clicking the mouse left button twice.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-9"></a><a href="#json-format-9" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;doubleclick&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+        &quot;value&quot;: &quot;html/body/form/table[3]/tbody/tr[2]/input&quot;, 
+        &quot;actiontype&quot;: &quot;doubleClick&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>hover</strong>: It will move the mouse from its current position to the given offset (Horizontal and Vertical) position. It is similar to mouse hover on an element.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-10"></a><a href="#json-format-10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;hover&quot;:  
+{  
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,  
+        &quot;category&quot;: &quot;Web UI Actions&quot;,  
+        &quot;subCategory&quot;: &quot;Selenium&quot;,  
+        &quot;attr&quot;: &quot;XPATH&quot;,  
+        &quot;value&quot;: &quot;html/body/form/table/tbody/tr/td//tbody/tr/td[4]&quot;,         
+        &quot;actiontype&quot;: &quot;hover&quot;,  
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot;  
+}
+</code></pre>
+<p><strong>switchToWindow</strong>: It will switch our focus control from one window to another window. Usually, it is used to switch over from main window to newly opened window.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-11"></a><a href="#json-format-11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;windowswitch&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;actiontype&quot;: &quot;switchToWindow&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;value&quot;: &quot;3&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>Enter</strong>: It will press the enter key through selenium webdriver. It is similar to pressing the enter button in the keyboard.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-12"></a><a href="#json-format-12" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;ClickEnter&quot;:  
+{  
+         &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,  
+         &quot;category&quot;: &quot;Web UI Actions&quot;,  
+         &quot;subCategory&quot;: &quot;Selenium&quot;,  
+         &quot;attr&quot;: &quot;XPATH&quot;,  
+         &quot;value&quot;: &quot;html/body/form/table/tbody/tr/td//tbody/tr/td[4]&quot;,  
+         &quot;actiontype&quot;: &quot;Enter&quot;,  
+         &quot;scope&quot;: &quot;ACTION&quot;,
+         &quot;executionType&quot;: &quot;Driver&quot;  
+ }
+</code></pre>
+<p><strong>focusEnter</strong>: It will move on to the specific element and click on it.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-13"></a><a href="#json-format-13" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;FocusAndClickEnter&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+         &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;value&quot;: &quot;html/body/form/table/tbody/tr/td//tbody/tr/td[4]&quot;, 
+        &quot;actiontype&quot;: &quot;focusEnter&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>NavigateElement</strong>: It will move the focus from one element to another. It is similar to pressing the TAB button in keyboard.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-14"></a><a href="#json-format-14" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;navigate_element&quot;:
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;value&quot;: &quot;html/body/form/td[2]/input&quot;, 
+        &quot;actiontype&quot;: &quot;NavigateElement&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>selectradio</strong>: Handles togging of radio button.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-15"></a><a href="#json-format-15" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;radio_button&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;attr&quot;:&quot;NAME&quot;, 
+        &quot;value&quot;: &quot;software&quot;, 
+        &quot;actiontype&quot;: &quot;selectradio&quot;, 
+        &quot;executionType&quot;: &quot;Script&quot;, 
+         &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;selectType&quot;:&quot;BYVALUE&quot;, 
+        &quot;applicantkey&quot;:&quot;Peachtree&quot;         
+}
+</code></pre>
+<p><strong>selectcheckbox</strong>: Method to toggle a check box on/off and to handle multiple sections.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-16"></a><a href="#json-format-16" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;check_box&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;attr&quot;:&quot;NAME&quot;, 
+        &quot;value&quot;: &quot;type&quot;, 
+         &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;actiontype&quot;: &quot;selectcheckbox&quot;, 
+        &quot;executionType&quot;: &quot;Script&quot;, 
+        &quot;selectType&quot;:&quot;BYVALUE&quot;, 
+        &quot;applicantKeys&quot;:[&quot;notebook&quot;,&quot;netbook&quot;]         
+}
+</code></pre>
+<p><strong>findElement</strong>: It is If-else conditional action. If the element is present, then it will follow the actions in elementPresent Array. Else it will follow the actions in elementNotPresent array.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-17"></a><a href="#json-format-17" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">  &quot;find_element&quot;: { 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;actiontype&quot;: &quot;findElement&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot;, 
+        &quot;attr&quot;: &quot;XPATH&quot;, 
+        &quot;value&quot;: &quot;html/body/div[20]/div/div/div[2]/div[2]/div/input[@data-question=\&quot;1\&quot;]&quot;, 
+        &quot;elementPresent&quot;: [&quot;entercountry&quot;], 
+        &quot;elementNotPresent&quot;: [&quot;entercolour&quot;], 
+        &quot;subfields&quot;: { 
+            &quot;entercountry&quot;: { 
+                &quot;attr&quot;: &quot;XPATH&quot;, 
+                &quot;applicantkey&quot;: &quot;dubai&quot;, 
+                &quot;value&quot;: &quot;html/body/div[20]/div/div/div[2]/div[4]/div/input&quot;, 
+                &quot;actiontype&quot;: &quot;setText&quot;, 
+                &quot;executionType&quot;: &quot;Driver&quot; 
+            }, 
+            &quot;entercolour&quot;: { 
+                &quot;attr&quot;: &quot;XPATH&quot;, 
+                &quot;applicantkey&quot;: &quot;green&quot;, 
+                &quot;value&quot;: &quot;html/body/div[20]/div/div/div[2]/div[4]/div/input&quot;, 
+                &quot;actiontype&quot;: &quot;setText&quot;, 
+                &quot;executionType&quot;: &quot;Driver&quot; 
+            } 
+        } 
+    }
+</code></pre>
+<p><strong>elementLooping</strong>: It will iterate certain process with respect to the value given.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-18"></a><a href="#json-format-18" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;loopcheck&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot;, 
+        &quot;actiontype&quot;: &quot;elementLooping&quot;, 
+        &quot;startIndex&quot;: &quot;1&quot;, 
+        &quot;indexName&quot;: &quot;_indexesds&quot;, 
+        &quot;value&quot;: &quot;5&quot;, 
+        &quot;actionList&quot;: [&quot;newJob&quot;,&quot;windowhandleSleep&quot;], 
+        &quot;subfields&quot;: { 
+            &quot;newJob&quot;: { 
+                &quot;attr&quot;: &quot;XPATH&quot;, 
+                &quot;value&quot;: &quot;//*[@id=\&quot;Table3\&quot;]/tbody/tr[2]/td[2]/table/tbody/
+                tr[_indexesds]/td[3]/a&quot;, 
+                &quot;actiontype&quot;: &quot;click&quot;, 
+                &quot;executionType&quot;: &quot;Driver&quot; 
+            }, 
+
+            &quot;windowhandleSleep&quot;: { 
+                &quot;actiontype&quot;: &quot;wait&quot;, 
+                &quot;executionType&quot;: &quot;Driver&quot;, 
+                &quot;conditions&quot;: [{ 
+                &quot;selectType&quot;: &quot;LoadingMinutes&quot; 
+                }] 
+            }    }     }
+</code></pre>
+<p><strong>Note:</strong> The number of times the loop needs to iterated should be specified in “value” field.</p>
+<ol>
+<li><p>If you want the value to be read from the documentgrid, then, you need to specify “attr” field as “documentGrid” and the variable name should be given in “value” field.</p></li>
+<li><p>If you want the value to be determined by executing a script, then, you need to specify “attr” field as “script” and the variable name should be given in the “value” field.</p></li>
+</ol>
+<p><strong>Scroll</strong>: It will scroll up/down/right/left the webpage.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-19"></a><a href="#json-format-19" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;Scroll&quot;: 
+{ 
+    &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+    &quot;category&quot;: &quot;Web UI Actions&quot;, 
+    &quot;subCategory&quot;: &quot;Selenium&quot;, 
+    &quot;executionType&quot;: &quot;Script&quot;, 
+    &quot;scope&quot;: &quot;ACTION&quot;,
+    &quot;actiontype&quot;: &quot;scroll&quot;, 
+    &quot;selectType&quot;: &quot;up&quot;, 
+    &quot;value&quot;: &quot;500&quot; 
+  }  
+</code></pre>
+<p><strong>typeText</strong>: It will enter the given data in the field where the cursor is presently located.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-20"></a><a href="#json-format-20" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;type_text&quot;: 
+{ 
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+        &quot;category&quot;: &quot;Web UI Actions&quot;, 
+        &quot;subCategory&quot;: &quot;Selenium&quot;, 
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;actiontype&quot;:&quot; typeText &quot;, 
+        &quot;applicantkey&quot;:&quot;Hello world&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot; 
+}
+</code></pre>
+<p><strong>sendKey</strong>: It is similar to clicking on the Enter/TAB from current location. Enter or Tab name should be specified in sub action type.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-21"></a><a href="#json-format-21" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;sendkeys&quot;: 
+    { 
+         &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;, 
+         &quot;category&quot;: &quot;Web UI Actions&quot;, 
+         &quot;subCategory&quot;: &quot;Selenium&quot;, 
+         &quot;actiontype&quot;:&quot;sendKey&quot;, 
+         &quot;scope&quot;: &quot;ACTION&quot;,
+         &quot;subActiontype&quot;:&quot;Tab&quot;,  
+         &quot;executionType&quot;: &quot;Driver&quot; 
+    }
+</code></pre>
+<p><strong>clearText</strong>:  It will clear the existing text in the field.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-22"></a><a href="#json-format-22" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;clear_text&quot;: {
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+        &quot;category&quot;: &quot;Web UI Actions&quot;,
+        &quot;subCategory&quot;: &quot;Selenium&quot;,
+        &quot;actiontype&quot;:&quot;clearText&quot;,
+         &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;attr&quot;: &quot;XPATH&quot;,
+         &quot;value&quot;: &quot;//*[@id=\&quot;Table3\&quot;]/tbody/tr[2]/td[2]/table/tbody/tr[2]&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot;
+    }
+</code></pre>
+<p><strong>switchtoIframe</strong>: It will switch from one iframe to another</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-23"></a><a href="#json-format-23" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">{
+        &quot;switch_to_iframe&quot;: {
+        &quot;attr&quot;: &quot;id&quot;, 
+        &quot;value&quot;: &quot;txtLoginUserName&quot;, 
+        &quot;actiontype&quot;: &quot;switchToIframe&quot;, 
+        &quot;executionType&quot;: &quot;Driver&quot;,
+         &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;subActiontype&quot;:&quot;child&quot; //child,parent,mostparent
+   }
+}
+</code></pre>
+<p><strong>acceptAlertWindow</strong>: It will click the OK button from the popup that appears.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-24"></a><a href="#json-format-24" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;alert&quot;: {
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+        &quot;category&quot;: &quot;Web UI Actions&quot;,
+        &quot;subCategory&quot;: &quot;Selenium&quot;,
+        &quot;actiontype&quot;: &quot;acceptAlertWindow&quot;,
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;selectType&quot;: &quot;accept&quot;,
+        &quot;executionType&quot;: &quot;Driver&quot;
+}
+</code></pre>
+<p><strong>Script</strong>: This action helps you to write your own java script.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-25"></a><a href="#json-format-25" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;readscript&quot; : {
+             &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+             &quot;category&quot;: &quot;Web UI Actions&quot;,
+             &quot;subCategory&quot;: &quot;Selenium&quot;,
+             &quot;actiontype&quot;:&quot;script&quot;,
+             &quot;executionType&quot;:&quot;script&quot;,
+             &quot;value&quot;:&quot;&lt;&lt;Java_Script&gt;&gt;&quot;
+}
+</code></pre>
+<p><strong>Criteria Script</strong>: This action helps you to execute the java script based on specified criteria.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-26"></a><a href="#json-format-26" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;criteriascript&quot;: {
+        &quot;referenceId&quot;: &quot;M4CR-9FZW-5U8G-N2P3&quot;,
+        &quot;category&quot;: &quot;Web UI Actions&quot;,
+        &quot;subCategory&quot;: &quot;Selenium&quot;,
+        &quot;actiontype&quot;: &quot;criteriascript&quot;,
+        &quot;executionType&quot;: &quot;script&quot;,
+        &quot;scope&quot;: &quot;ACTION&quot;,
+        &quot;criterias&quot;: [
+                        {
+                        &quot;key&quot;:&quot;${projectname}&quot;,
+                        &quot;applicantkey&quot;: &quot;@itemsTable.loopIndex.Project Name&quot;
+                        }
+                    ],
+        &quot;value&quot;: &quot;var  pro  = '${projectname}'; 
+        var list = document.getElementsByClassName('r-table__tr'); 
+        for(i=1;i&lt;list.length;i++)
+        { 
+        var dataNAME=document.querySelector('#main-dashboard-wrapper &gt; 
+        div.item.click();
+        }
+       }&quot;
+    }
+</code></pre>
+<p><strong>4.2 Core Actions</strong>:</p>
+<p><strong>Screenshot</strong>: It will take the print screen of webpage.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-27"></a><a href="#json-format-27" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;screenshot&quot;:
+{
+&quot;referenceId&quot;: &quot;core&quot;,
+&quot;category&quot;: &quot;core&quot;,
+&quot;actionType&quot;: &quot;screenshot&quot;,
+&quot;outPath&quot;: &quot;$QM_HOME/$QM_OUTPUT_PATH&quot;,
+&quot;value&quot;: &quot;attachment&quot;
+}
+</code></pre>
+<p><strong>Note:</strong> “value” field contains the dataGrid key – to which the attachment downloaded path is stored.</p>
+<p><strong>Loop</strong>: It will execute a set of instruction repeatedly until some condition are fulfilled.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-28"></a><a href="#json-format-28" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;processLooping&quot;: {
+        &quot;referenceId&quot;: &quot;core&quot;,
+        &quot;category&quot;: &quot;core&quot;,
+        &quot;actionType&quot;: &quot;loop&quot;,
+        &quot;loopIndex&quot;: 2,
+        &quot;actionList&quot;: {
+            &quot;login&quot;: {
+                &quot;indexParam&quot;: 1,
+                &quot;category&quot;: &quot;ui_actions_plugin&quot;,
+                &quot;scope&quot;: &quot;GROUP&quot;,
+                &quot;scriptPath&quot;: &quot;/config_files/login.json&quot;
+            },
+            &quot;logout&quot;: {
+                &quot;indexParam&quot;: 1,
+                &quot;category&quot;: &quot;ui_actions_plugin&quot;,
+                &quot;scope&quot;: &quot;GROUP&quot;,
+                &quot;scriptPath&quot;: &quot;/config_files/logout.json&quot;
+            }
+        }
+    }
+</code></pre>
+<p><strong>If – Condition</strong>: It will execute a set of instruction if a specified condition is true.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-29"></a><a href="#json-format-29" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;if_condition&quot;: {
+    &quot;referenceId&quot;: &quot;core&quot;,
+    &quot;category&quot;: &quot;core&quot;,
+    &quot;actionType&quot;: &quot;if&quot;,
+    &quot;condition&quot;: {
+    &quot;operator&quot;: &quot;equal&quot;,
+    &quot;IdataType&quot;: &quot;int&quot;,
+    &quot;leftParam&quot;: &quot;5&quot;,
+    &quot;rightParam&quot;: &quot;5&quot;,
+    &quot;stateTrue&quot;: {
+    &quot;process&quot;: {
+          &quot;indexParam&quot;: 1,
+          &quot;category&quot;: &quot; ui_actions_plugin &quot;,
+          &quot;scope&quot;: &quot;GROUP&quot;,
+          &quot;scriptPath&quot;: &quot;/config_files/login.json&quot;
+        }
+      },
+      &quot;stateFalse&quot;: {
+      &quot;logout&quot;: {
+      &quot;indexParam&quot;: 1,
+      &quot;category&quot;: &quot;ui_actions_plugin&quot;,
+      &quot;scope&quot;: &quot;GROUP&quot;,
+      &quot;scriptPath&quot;: &quot;/config_files/logout.json&quot;
+        }
+      }
+    }
+  }
+</code></pre>
+<p><strong>While</strong>: It will repeatedly execute a set of instruction until the given condition is true.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-30"></a><a href="#json-format-30" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;whilecheck&quot;: {
+    &quot;referenceId&quot;: &quot;core&quot;,
+    &quot;category&quot;: &quot;core&quot;,
+    &quot;actionType&quot;: &quot;while&quot;,
+    &quot;condition&quot;: {
+      &quot;operator&quot;: &quot;equal&quot;,
+      &quot;calibrate&quot;: &quot;increment&quot;,
+      &quot;calibrationValue&quot;:1,
+      &quot;startIndex&quot;: &quot;0&quot;,
+      &quot;endIndex&quot;: &quot;3&quot;,
+      &quot;continueTill&quot;: {
+        &quot;process&quot;: {
+          &quot;category&quot;: &quot; ui_actions_plugin&quot;,
+          &quot;scope&quot;: &quot;GROUP&quot;,
+          &quot;scriptPath&quot;: &quot;/config_files/login.json&quot;
+        }
+      }
+    }
+  }
+</code></pre>
+<p><strong>Display Message</strong>: It will display the predefined response message in UI after specific task was completed.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-31"></a><a href="#json-format-31" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;message&quot;: 
+{
+        &quot;referenceId&quot;: &quot;core&quot;,
+        &quot;category&quot;: &quot;core&quot;, 
+        &quot;actionType&quot;: &quot;Display Message&quot;,
+        &quot;message&quot;: &quot;&quot;
+}
+</code></pre>
+<p><strong>Set Variable</strong>: This action is used to set the value for already defined variable.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-32"></a><a href="#json-format-32" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;setVariable&quot;: 
+{
+        &quot;referenceId&quot;: &quot;core&quot;,
+        &quot;category&quot;: &quot;core&quot;,
+        &quot;actionType&quot;: &quot;Set Variable&quot;,
+        &quot;variableName&quot;:&quot;&quot;,
+        &quot;variableValue&quot;: &quot;&quot;
+}
+</code></pre>
+<p><strong>GUID</strong>: This action is used to generate GUID.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-33"></a><a href="#json-format-33" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">   &quot;generate-id&quot;: {
+    &quot;referenceId&quot;: &quot;core&quot;,
+    &quot;category&quot;: &quot;core&quot;,
+    &quot;subCategory&quot;: &quot;Utils&quot;,
+    &quot;actionType&quot;: &quot;GUID&quot;,
+    &quot;values&quot;: &quot;ABCDEFGHabcdef0123456789&quot;,
+      &quot;minlenght&quot;: 5,
+      &quot;maxlenght&quot;: 10,
+      &quot;documentGrid&quot;: &quot;password&quot;,
+    &quot;scope&quot;: &quot;ACTION&quot;
+  }
+</code></pre>
+<p><strong>Create Datatable</strong>: This action is used to create datatable during process execution.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-34"></a><a href="#json-format-34" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;create_datatable&quot;:
+ {
+&quot;referenceId&quot;: &quot;core&quot;,
+&quot;category&quot;: &quot;core&quot;,
+&quot;subCategory&quot;: &quot;datatable&quot;,
+&quot;actionType&quot;: &quot;Create Datatable&quot;,
+&quot;tableName&quot;: &quot;dt1&quot;
+},
+
+&quot;add_header&quot;: 
+{
+&quot;referenceId&quot;: &quot;core&quot;,
+&quot;category&quot;: &quot;core&quot;,
+&quot;subCategory&quot;: &quot;datatable&quot;,
+&quot;actionType&quot;: &quot;Add Column Header&quot;,
+&quot;tableName&quot;: &quot;dt1&quot;,
+&quot;columnHeaders&quot;: [
+&quot;header1&quot;,
+&quot;header2&quot;,
+&quot;header3&quot;
+],
+&quot;columnTypes&quot;: [
+&quot;String&quot;,
+&quot;String&quot;,
+&quot;String&quot;
+]
+},
+&quot;add_row&quot;: {
+&quot;referenceId&quot;: &quot;core&quot;,
+&quot;category&quot;: &quot;core&quot;,
+&quot;subCategory&quot;: &quot;datatable&quot;,
+&quot;actionType&quot;: &quot;Add Data Row&quot;,
+&quot;tableName&quot;: &quot;dt1&quot;,
+&quot;rowValues&quot;: [
+    &quot;City&quot;,
+    &quot;State&quot;,
+    &quot;Postal Code&quot;
+]
+}
+</code></pre>
+<p><strong>5. Plugin</strong></p>
+<p><strong>5.1 MS office Plugin</strong></p>
+<p><strong>Read Data</strong>: It will fetch data from MS word file.
+Here, you need to give Subcategory as word.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-35"></a><a href="#json-format-35" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">{
+  &quot;read&quot;: {
+    &quot;referenceId&quot;:&quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+     &quot;category&quot;: &quot;MsOffice Actions&quot;,
+    &quot;subCategory&quot;:&quot;Word&quot;,
+    &quot;actionType&quot;: &quot;Read Data&quot;,
+    &quot;documentName&quot;: &quot;path&quot;,
+    &quot;fieldNames&quot;: [
+        {
+          &quot;key&quot;: &quot;DATE:&quot;,
+          &quot;assignTo&quot;: &quot;number&quot;
+        },
+        {
+          &quot;key&quot;: &quot;INVOICE NO:&quot;,
+          &quot;assignTo&quot;: &quot;date&quot;
+        },
+        {
+          &quot;tableHeaders&quot;: [
+            &quot;DESCRIPTION&quot;,
+            &quot;QTY&quot;,
+            &quot;UNIT PRICE&quot;,
+            &quot;TOTAL&quot;
+          ],
+          &quot;assignTo&quot;: &quot;itemsTable&quot;
+        }
+      ]
+   }
+}
+</code></pre>
+<p><strong>Write Range</strong>: It will write data into MS Excel file.
+Here, you need to give Subcategory as excel.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-36"></a><a href="#json-format-36" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">{
+&quot;Write_to_excel&quot;: {
+    &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+    &quot;category&quot;: &quot;MsOffice Actions&quot;,
+    &quot;subCategory&quot;:&quot;Excel&quot;,
+    &quot;actionType&quot;:&quot;Write Range&quot;,
+    &quot;dataTable&quot;: &quot;itemsTable&quot;,
+    &quot;sheetName&quot;: &quot;items&quot;,
+    &quot;startingCell&quot;: &quot;A1&quot;,
+    &quot;addHeaders&quot;: true,
+    &quot;outPath&quot;: &quot;$QM_HOME/$QM_OUTPUT_PATH/items.xlsx&quot;,
+    &quot;copyPathTo&quot;: &quot;path&quot;,
+    &quot;scope&quot;:&quot;ACTION&quot;
+  }
+}
+</code></pre>
+<p><strong>Read Data – Cell Merge</strong>: It will merge the cells in MS excelsheet.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-37"></a><a href="#json-format-37" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> {
+    &quot;cell_merge&quot;: {
+        &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+        &quot;category&quot;: &quot;MsOffice Actions&quot;,
+        &quot;subCategory&quot;: &quot;Excel&quot;,
+        &quot;actionType&quot;: &quot;Read Data&quot;,
+        &quot;documentName&quot;: &quot;path&quot;,
+        &quot;event&quot;: &quot;Cell Merge&quot;,
+        &quot;sheetName&quot;: &quot;Page 1&quot;,
+        &quot;range&quot;: &quot;D6:F6&quot;
+    }
+}
+</code></pre>
+<p><strong>Read Data – Unmerge cell</strong>: It will unmerge all the merged cells in the sheet</p>
+<pre><code class="hljs">{
+    &quot;read_excel&quot;: {
+        &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+        &quot;category&quot;: &quot;MsOffice Actions&quot;,
+        &quot;subCategory&quot;: &quot;Excel&quot;,
+        &quot;actionType&quot;: &quot;Read Data&quot;,
+        &quot;documentName&quot;: &quot;path&quot;,
+        &quot;event&quot;: &quot;Cell Unmerge&quot;,
+        &quot;sheetName&quot;: &quot;Page 1&quot;,
+        &quot;range&quot;: &quot;A:T&quot;
+    }
+}
+</code></pre>
+<p><strong>Read Data – Read Cell</strong>: It will read the data from a specified cell.</p>
+<pre><code class="hljs">{
+    &quot;read_excel&quot;: {
+        &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+        &quot;category&quot;: &quot;MsOffice Actions&quot;,
+        &quot;subCategory&quot;: &quot;Excel&quot;,
+        &quot;actionType&quot;: &quot;Read Data&quot;,
+        &quot;documentName&quot;: &quot;path&quot;,
+        &quot;event&quot;: &quot;Read Cell&quot;,
+        &quot;sheetName&quot;: &quot;Page 1&quot;,
+        &quot;cell&quot;:&quot;A2&quot;,
+        &quot;variable&quot;:&quot;value&quot;
+    }
+}
+</code></pre>
+<p><strong>Read Data – Read Row</strong>: It will read the data from a specified excel row.</p>
+<pre><code class="hljs">{
+  &quot;read_excel&quot;: {
+      &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+      &quot;category&quot;: &quot;MsOffice Actions&quot;,
+      &quot;subCategory&quot;: &quot;Excel&quot;,
+      &quot;actionType&quot;: &quot;Read Data&quot;,
+      &quot;documentName&quot;: &quot;path&quot;,
+      &quot;event&quot;:&quot;Read Row&quot;,
+      &quot;sheetName&quot;:&quot;test&quot;,
+      &quot;addHeader&quot;: false,
+      &quot;range&quot;:&quot;A2:C2&quot;,
+      &quot;assignTo&quot;:&quot;itemsTable&quot;
+  }
+}
+</code></pre>
+<p><strong>Read Data – Read Column</strong>: It will read the data from a specified excel column</p>
+<pre><code class="hljs">{
+  &quot;read_excel&quot;: {
+      &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+      &quot;category&quot;: &quot;MsOffice Actions&quot;,
+      &quot;subCategory&quot;: &quot;Excel&quot;,
+      &quot;actionType&quot;: &quot;Read Data&quot;,
+      &quot;documentName&quot;: &quot;path&quot;,
+      &quot;event&quot;:&quot;Read Column&quot;,
+      &quot;sheetName&quot;:&quot;test&quot;,
+      &quot;addHeader&quot;: true,
+      &quot;range&quot;:&quot;D12:D16&quot;,
+      &quot;assignTo&quot;:&quot;itemsTable&quot;
+  }
+}
+</code></pre>
+<p><strong>Read Data – Read Columns</strong>: It will read the data from the specified excel columns</p>
+<pre><code class="hljs">{
+  &quot;read_excel&quot;: {
+      &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+      &quot;category&quot;: &quot;MsOffice Actions&quot;,
+      &quot;subCategory&quot;: &quot;Excel&quot;,
+      &quot;actionType&quot;: &quot;Read Data&quot;,
+      &quot;documentName&quot;: &quot;path&quot;,
+      &quot;event&quot;:&quot;Read Columns&quot;,
+      &quot;sheetName&quot;:&quot;test&quot;,
+      &quot;addHeader&quot;: true,
+      &quot;range&quot;:&quot;A:C&quot;,
+      &quot;assignTo&quot;:&quot;itemsTable&quot;
+  }
+}
+</code></pre>
+<p><strong>Read Data – Read Range</strong>: It will read the data from the specified range from the excel sheet.</p>
+<pre><code class="hljs">{
+  &quot;read_excel&quot;: {
+      &quot;referenceId&quot;: &quot;E9D0-ZLTG-XKB4-UQHJ&quot;,
+      &quot;category&quot;: &quot;MsOffice Actions&quot;,
+      &quot;subCategory&quot;: &quot;Excel&quot;,
+      &quot;actionType&quot;: &quot;Read Data&quot;,
+      &quot;documentName&quot;: &quot;path&quot;,
+      &quot;event&quot;:&quot;Read Range&quot;,
+      &quot;sheetName&quot;:&quot;test&quot;,
+      &quot;addHeader&quot;: true,
+      &quot;range&quot;:&quot;D12:E16&quot;,
+      &quot;assignTo&quot;:&quot;itemsTable&quot;
+  }
+}
+</code></pre>
+<p><strong>5.2 Mail Plugin</strong></p>
+<p><strong>GetMail</strong>: This action is used to download file attachments from the email.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-38"></a><a href="#json-format-38" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> {
+  &quot;Read_From_Mail_Server&quot;: {
+    &quot;referenceId&quot;: &quot;4WXR-BF1Q-3SMP-I6H5&quot;,
+    &quot;category&quot;: &quot;Mail Actions&quot;,
+    &quot;subCategory&quot;: &quot;POP3&quot;,
+    &quot;actionType&quot;: &quot;Get Mail&quot;,
+    &quot;serverHost&quot;: &quot;smtp.outlook.com&quot;,
+    &quot;serverPort&quot;: 993,(server port)(995)
+    &quot;mailProtocol&quot;: &quot;imaps&quot;,(protocol)(pop3s)
+    &quot;mailAuth&quot;: true,
+    &quot;messageFolder&quot;: &quot;inbox&quot;,(read mails from folder)
+    &quot;messageStatus&quot;: &quot;unread&quot;,(filter messages)
+    &quot;messageSubject&quot;: &quot;Test&quot;,(filter based on subject)
+    &quot;mailFrom&quot;: &quot;yourmailid@gmail.com&quot;,(filter based on mail from)
+    &quot;fileType&quot;: [&quot;.PDF&quot;],
+    &quot;getAttachments&quot;: true,
+    &quot;markAsRead&quot;: true,
+    &quot;outPath&quot;: &quot;$QM_HOME/$QM_OUTPUT_PATH&quot;,(file will be download out files folder)
+    &quot;userName&quot;: &quot;username&quot;,
+    &quot;password&quot;: &quot;password&quot;,
+    &quot;copyPathTo&quot;: &quot;path&quot;,
+    &quot;scope&quot;: &quot;ACTION&quot;
+  }
+}
+</code></pre>
+<p><strong>Send Mail</strong>: It is used to send mail (with/without attachments) to specific mail id.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-39"></a><a href="#json-format-39" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">{
+  &quot;Send_Mail&quot;: {
+    &quot;referenceId&quot;: &quot;4WXR-BF1Q-3SMP-I6H5&quot;,
+    &quot;category&quot;: &quot;Mail Actions&quot;,
+    &quot;subCategory&quot;: &quot;SMTP&quot;,
+    &quot;actionType&quot;: &quot;Send Mail&quot;,
+    &quot;serverHost&quot;: &quot;smtp.outlook.com&quot;,
+    &quot;serverPort&quot;: 587,
+    &quot;mailProtocol&quot;: &quot;smtp&quot;,
+    &quot;mailAuth&quot;: true,
+    &quot;starttlsEnable&quot;: true,
+    &quot;sendAttachments&quot;: false,
+    &quot;attachments&quot;: &quot;#datagrid(attachment)&quot;,
+    &quot;emailSubject&quot;: &quot;Test QM Scheduler - Cron Testing-2&quot;,
+    &quot;emailBody&quot;: &quot;Hello world&quot;,
+    &quot;templatePath&quot;: &quot;resources/body.ftl&quot;,
+    &quot;templateValues&quot;: { &quot;mailcontent&quot;: &quot;Bot Process Terminated&quot; },
+    &quot;sendTo&quot;: [ &quot;yourmailid@gmail.com&quot;],
+    &quot;userName&quot;: &quot;username&quot;,
+    &quot;password&quot;: &quot;password&quot;,
+    &quot;scope&quot;: &quot;ACTION&quot;
+  }
+}
+</code></pre>
+<p><strong>Check Mail</strong>: It is used to check the Mail based on the given Subject text.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-40"></a><a href="#json-format-40" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">{
+  &quot;Check_Mail&quot;: {
+    &quot;referenceId&quot;: &quot;4WXR-BF1Q-3SMP-I6H5&quot;,
+    &quot;category&quot;: &quot;Mail Actions&quot;,
+    &quot;subCategory&quot;: &quot;POP3&quot;,
+    &quot;actionType&quot;: &quot;Check Mail&quot;,
+    &quot;serverHost&quot;: &quot;smtp.outlook.com&quot;,
+    &quot;serverPort&quot;: 993,(995)
+    &quot;mailProtocol&quot;: &quot;imaps&quot;,(pop3s)
+    &quot;messageFolder&quot;: &quot;inbox&quot;,
+    &quot;messageStatus&quot;: &quot;unread&quot;,
+    &quot;mailAuth&quot;: true,
+    &quot;starttlsEnable&quot;: true,
+    &quot;userName&quot;: &quot;username&quot;,
+    &quot;password&quot;: &quot;password&quot;,
+    &quot;scope&quot;: &quot;ACTION&quot;
+  }
+}
+</code></pre>
+<p><strong>5.3 OCR Plugin</strong>
+<strong>Read Data – Accura Scan</strong>: It will fetch data from any image file.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-41"></a><a href="#json-format-41" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">Subcategory - Accura Scan
+{
+  &quot;Read_passport_data&quot;: {
+     &quot;referenceId&quot;:&quot;OECK-TQV1-2A4M-XB3F&quot;,
+     &quot;category&quot;: &quot;OCR Actions&quot;,
+     &quot;subCategory&quot;:&quot;Accura Scan&quot;,
+     &quot;actionType&quot;: &quot;Read Data&quot;,
+     &quot;images&quot;:&quot;path&quot;,
+     &quot;cardType&quot;: &quot;1&quot;,
+     &quot;apiKey&quot;: &quot;155376644211oeZPhrq60SeCNxpYAk01THJhCUFpuh7DpeK9mE&quot;,
+     &quot;status&quot;: &quot;status&quot;,
+     &quot;name&quot;: &quot;name&quot;,
+     &quot;gender&quot;: &quot;gender&quot;,
+     &quot;passportNo&quot;: &quot;passportNo&quot;,
+     &quot;dob&quot;: &quot;dob&quot;
+    }
+}
+</code></pre>
+<p><strong>Read Data – Abbyy Cloud</strong>: It will fetch data from an image.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-42"></a><a href="#json-format-42" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">Subcategory – Abbyy Cloud
+
+{
+  &quot;Read_passport_data&quot;: {
+      &quot;referenceId&quot;:&quot;OECK-TQV1-2A4M-XB3F&quot;,
+      &quot;category&quot;: &quot;OCR Actions&quot;,
+      &quot;subCategory&quot;:&quot;Abbyy Cloud&quot;,
+      &quot;actionType&quot;: &quot;Read Data&quot;,
+      &quot;images&quot;:&quot;path&quot;,
+      &quot;mode&quot;:&quot;MRZ&quot;,
+      &quot;applicationId&quot;:&quot;OCR_Abbyy_Process&quot;,
+      &quot;password&quot;:&quot;4nniBNGuHj0UsFMzZ42byNGc&quot;,
+      &quot;name&quot;: &quot;name&quot;,
+      &quot;gender&quot;: &quot;gender&quot;,
+      &quot;passportNo&quot;: &quot;passportNo&quot;,
+      &quot;dob&quot;: &quot;dob&quot;
+   }
+}
+</code></pre>
+<p><strong>5.4 PDF Plugin</strong>
+<strong>READ PDF DATA - Tesseract</strong>: It will fetch data from any image file.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-43"></a><a href="#json-format-43" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">{
+&quot;Tesserect&quot;: {
+&quot;referenceId&quot;: &quot;OM9W-RV4L-HFTP-5UIY&quot;,
+&quot;category&quot;: &quot;PDF Actions&quot;,
+&quot;subCategory&quot;: &quot;TESSERECT&quot;,
+&quot;actionType&quot;: &quot;READ PDF DATA&quot;,
+&quot;sourcePath&quot;: &quot;E:\\POC\\FM POC\\FAM_POC_Scope_-_DCB_\\Cygnus tech.pdf&quot;, //local file path)
+&quot;outputPath&quot;: &quot;$QM_HOME/$QM_OUTPUT_PATH&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;
+    }
+}
+</code></pre>
+<p><strong>READ PDF DATA - ITEXT</strong>: It will fetch data from clear and proper PDF file and it will not fetch data from scanned PDF.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-44"></a><a href="#json-format-44" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">{
+&quot;Itext&quot;: {
+&quot;referenceId&quot;: &quot;OM9W-RV4L-HFTP-5UIY&quot;,
+&quot;category&quot;: &quot;PDF Actions&quot;,
+&quot;subCategory&quot;: &quot;ITEXT&quot;,
+&quot;actionType&quot;: &quot;READ PDF DATA&quot;,
+&quot;sourcePath&quot;: &quot;E:\\test.pdf&quot;,(local pure PDF, not scan PDF)
+&quot;outputPath&quot;: &quot;$QM_HOME/$QM_OUTPUT_PATH&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;
+    }
+}
+</code></pre>
+<p><strong>READ PDF DATA – OCR space</strong>: It will fetch data from the PDF image that presents in live web URL.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-45"></a><a href="#json-format-45" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> {
+&quot;OCRSPACE&quot;: {
+&quot;referenceId&quot;: &quot;OM9W-RV4L-HFTP-5UIY&quot;,
+&quot;category&quot;: &quot;PDF Actions&quot;,
+&quot;subCategory&quot;: &quot;OCRSPACE&quot;,
+&quot;actionType&quot;: &quot;READ PDF DATA&quot;,
+&quot;url&quot;: &quot;https://5.imimg.com/data5/XZ/BJ/RJ/SELLER-92944351/pancard-500x500-500x500.jpg&quot;,
+ (live URL)
+&quot;apikey&quot;: &quot;89dd6120bd88957&quot;,
+&quot;language&quot;: &quot;eng&quot;,
+&quot;outputPath&quot;: &quot;$QM_HOME/$QM_OUTPUT_PATH&quot;,
+&quot;isOverlayRequired&quot;: &quot;false&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;
+}
+}
+</code></pre>
+<p><strong>5.5 Screen UI Plugin (for Desktop Applications)</strong></p>
+<p><strong>Open Application</strong>: Action will open the desktop application (Example: Calculator)</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-46"></a><a href="#json-format-46" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;openApplication&quot;: 
+{
+&quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+&quot;category&quot;: &quot;UI Screen Actions&quot;,
+&quot;subCategory&quot;: &quot;AutoIt&quot;, 
+&quot;actionType&quot;: &quot;Open Application&quot;,
+&quot;exePath&quot;: &quot;C:\\Users\\calc.exe&quot;, // Location of the destop application (.exe file)
+&quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Click</strong>: Action will perform click event</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-47"></a><a href="#json-format-47" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;click_password&quot;: {
+&quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+&quot;category&quot;: &quot;UI Screen Actions&quot;,
+&quot;subCategory&quot;: &quot;AutoIt&quot;,
+&quot;actionType&quot;: &quot;Click&quot;,
+&quot;windowTitle&quot;: &quot;Sign in&quot;, // Title of the page on which action to be performed.
+&quot;windowLabel&quot;: &quot;Sales - New Item&quot;, // optional, label value of the button.
+&quot;locator&quot;: &quot;Class&quot;, // value to find the element (Id or Class or xpath)
+&quot;locatorValue&quot;: &quot;WindowsForms10&quot;, // value of the locator
+&quot;instance&quot;: &quot;2&quot;, // If many number of elements present in a same class, in order 
+ to specify the respective element from the class, instance of the element to be provided.
+&quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Send Keys</strong>: Action to perform send keys such as Ctrl + A, Tab, Enter, etc.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-48"></a><a href="#json-format-48" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;sendKeys_enter&quot;: {
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Send Keys&quot;,
+      &quot;keyValue&quot;: &quot;Enter&quot;, // value of the key which should be performed.
+      &quot;keyStrokeTimes&quot;: &quot;2&quot;, // number of times the send key action need to be performed.  
+                                  (default: 1 time)
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Send Text</strong>: Action to send the given text in the textbox</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-49"></a><a href="#json-format-49" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;sendText_description&quot;: {
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Send Text&quot;,
+      &quot;dataGrid&quot;: &quot;Your description&quot;, // value that needs to be entered in the textbox.
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Sleep</strong>: Action to make the driver to sleep for specific time.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-50"></a><a href="#json-format-50" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;sleep_30&quot;: {
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Sleep&quot;,
+      &quot;delayInSecond&quot;: &quot;2&quot;, // action will wait for the particular delay (in milliseconds)
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Close Window</strong>: Action to close the window based on window title</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-51"></a><a href="#json-format-51" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;close_window&quot;: {
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Window Close&quot;, // Title of the window to be closed.
+      &quot;windowTitle&quot;: &quot;Login&quot;,
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Window Wait Active</strong>: To wait until the window appears based on window title or window label in the expected window.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-52"></a><a href="#json-format-52" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;WaitforWindowAppear&quot;: {
+&quot;actionType&quot;: &quot;Window Wait Active&quot;,
+&quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+&quot;category&quot;: &quot;UI Screen Actions&quot;,
+&quot;subCategory&quot;: &quot;AutoIt&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+&quot;input&quot;: {
+&quot;windowTitle&quot;: &quot;&quot;, // Title of the window to which control to be switched.
+&quot;windowLabel&quot;: &quot;&quot; // Any text in the window to which control to be switched.
+    }
+}
+</code></pre>
+<p><strong>Get Text</strong>: Action to extract text from the application</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-53"></a><a href="#json-format-53" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">  &quot;getItem&quot;: {
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Get Text&quot;,
+      &quot;windowTitle&quot;: &quot;AccountRight&quot;,
+      &quot;windowLabel&quot;: &quot;Sales - New Item&quot;,
+      &quot;locator&quot;: &quot;Class&quot;,
+      &quot;locatorValue&quot;: &quot;WindowsForms10 &quot;,
+      &quot;instance&quot;: &quot;3&quot;,
+      &quot;dataGrid&quot;: &quot;extractedData&quot;, // To save the extracted data to a variable
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Mouse Click</strong>: Action to perform mouse click using (x, y) coordinates.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-54"></a><a href="#json-format-54" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">  &quot;mouseClick&quot;: 
+{
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Mouse Click&quot;, 
+      &quot;button&quot;: &quot;left&quot;, // Mouse button click (left or right or middle)
+      &quot;x&quot;: 898, // Coordinate of x-axis
+      &quot;y&quot;: 470, // Coordinate of y-axis
+      &quot;clicks&quot;: 1, // number of times the click action need to be performed
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Window Kill</strong>: Action to kill specified window</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-55"></a><a href="#json-format-55" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;window_kill&quot;: {
+&quot;actionType&quot;: &quot;Window Kill&quot;,
+&quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+&quot;category&quot;: &quot;UI Screen Actions&quot;,
+&quot;subCategory&quot;: &quot;AutoIt&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;,
+         &quot;input&quot;: {
+    &quot;windowTitle&quot;: &quot;&quot;, // Title of the window that need to be closed.
+    &quot; windowLabel &quot;: &quot;&quot; // Any label text from the window that need to be closed 
+                (Optional)
+    }   
+}
+</code></pre>
+<p><strong>Window Active</strong>: Action to Activate specified window</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-56"></a><a href="#json-format-56" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;stateTrue&quot;: 
+{   
+      &quot;waitActive_Spelling&quot;: {
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Window Active&quot;, 
+      &quot;windowTitle&quot;: &quot;Spelling&quot;, // Title of the window to which control to be switched.
+      &quot; windowLabel &quot;: &quot;&quot;, // Any text in the window to which control to be switched.
+        (Optional)
+      &quot;scope&quot;: &quot;ACTION&quot;
+     }
+}
+</code></pre>
+<p><strong>Window Exists</strong>: Action to check whether specified window exists or not</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-57"></a><a href="#json-format-57" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;isInformationExists_1&quot;: 
+{
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Window Exists&quot;,
+      &quot;windowTitle&quot;: &quot;Account Details &quot;,
+      &quot;windowLabel&quot;: &quot;Information&quot;,
+      &quot;dataGrid&quot;: &quot;isInformationWindow&quot;,
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Get Window Title</strong>: To get the title of specific window</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-58"></a><a href="#json-format-58" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">  &quot;click_ok_1&quot;:
+ {
+      &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+      &quot;category&quot;: &quot;UI Screen Actions&quot;,
+      &quot;subCategory&quot;: &quot;AutoIt&quot;,
+      &quot;actionType&quot;: &quot;Get Window Title&quot;,
+      &quot;windowTitle&quot;: &quot;Account Details&quot;,
+      &quot;windowLabel&quot;: &quot;Information&quot;, 
+      &quot;locator&quot;: &quot;Name&quot;,
+      &quot;locatorValue&quot;: &quot;btnLeft&quot;,
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>Focus Input Field</strong>: It will focus to the specific input field.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-59"></a><a href="#json-format-59" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">  &quot;focus_input_field&quot;: {
+       &quot;actionType&quot;: &quot;Focus Input Field&quot;,
+       &quot;referenceId&quot;: &quot;67VC-ZB25-N1GD-QYIU&quot;,
+       &quot;category&quot;: &quot;UI Screen Actions&quot;,
+       &quot;subCategory&quot;: &quot;AutoIt&quot;,
+       &quot;scope&quot;: &quot;ACTION&quot;,
+         &quot;input&quot;: {
+    &quot;windowTitle&quot;: &quot;&quot;, // Title of the window to which control to be switched.
+    &quot; windowLabel &quot;: &quot;&quot;, // Any text in the window to which control to be switched.  
+                   (Optional)
+            &quot;locator&quot;: &quot;&quot;, // type of locator (xpath/id/css)
+    &quot;locatorValue&quot;: &quot;&quot;, // value of the locator
+            &quot;instance&quot;: &quot;&quot; // when there are many elements belongs a class name, then 
+             instance need to be given to specify the exact element.
+}
+}
+</code></pre>
+<p><strong>5.6 Print Action</strong></p>
+<p><strong>Print</strong>: This action helps developer to check whether the variable is assigned correctly or not. This action can be used after the step where variable is declared, so that developer can check the correct value is assigned as a variable.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-60"></a><a href="#json-format-60" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;print&quot;:
+{
+      &quot;referenceId&quot;: &quot;IZAT-7ORE-JFK5-C86V&quot;,
+      &quot;category&quot;: &quot;Print Actions&quot;,
+      &quot;actionType&quot;: &quot;Print&quot;,
+      &quot;printValue&quot;: &quot;#runtimeinput(username)&quot;,
+      &quot;scope&quot;: &quot;ACTION&quot;
+}
+</code></pre>
+<p><strong>5.7 Mobile Actions</strong></p>
+<p><strong>establishConnection</strong>: This action helps to establish Appium Server connection.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-61"></a><a href="#json-format-61" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs"> &quot;startappium&quot;: {
+    &quot;referenceId&quot;: &quot;MOBI-PMJC-WF1V-O9EP&quot;,
+    &quot;category&quot;: &quot;Mobile Actions&quot;,
+    &quot;subCategory&quot;: &quot;appium&quot;,
+    &quot;actionType&quot;: &quot;establishConnection&quot;,
+    &quot;desiredCapablities&quot;: [
+      &quot;browserName: &quot;, // Name of the mobile web browser to automate. Should be 
+       empty string if automating an app instead
+       &quot;platformVersion:4.4.2&quot;, // Version name you mobile operating system (Andorid, 
+        IOS, or Windows)      
+      &quot;deviceName:Lenovo TAB 2&quot;, // Name of the mobile device to use
+      &quot;platformName:Android&quot;, // Name of the mobile OS
+      &quot;appPackage:com.truecaller&quot;, // Package of the Android app you want to run the 
+       automation process
+      &quot;appActivity:com.truecaller.ui.TruecallerInit&quot; // Name of the android activity 
+       you want to launch from package
+    ],
+    &quot;url&quot;: &quot;http://127.0.0.1:4723/wd/hub&quot;, // Url of the appium server
+    &quot;scope&quot;: &quot;ACTION&quot;
+  }
+</code></pre>
+<p><strong>visibilityWait</strong>: It is an explicit wait which will wait till some pre built condition become true. Eg. Wait for elements to become clickable, visible, invisible, etc. Maximum time out should be given in timeOutSeconds parameter.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-62"></a><a href="#json-format-62" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;visiblitywait&quot;: {
+    &quot;referenceId&quot;: &quot;MOBI-PMJC-WF1V-O9EP&quot;,
+    &quot;category&quot;: &quot;Mobile Actions&quot;,
+    &quot;subCategory&quot;: &quot;appium&quot;,
+    &quot;actionType&quot;: &quot;visiblityWait&quot;,
+    &quot;attr&quot;: &quot;id&quot;, // Type of the attribute (attributes can be id/xpath/class)
+    &quot;value&quot;: &quot;com.truecaller:id/nextButton&quot;, // This action will wait 
+     till this element appears.
+    &quot;timeOutSeconds&quot;: 15, // Maximum wait time
+    &quot;scope&quot;: &quot;ACTION&quot;
+  }
+</code></pre>
+<p><strong>elementVisiblityCheck</strong>: Action to click on the element.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-63"></a><a href="#json-format-63" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;alertpresentornot2&quot;: {
+&quot;referenceId&quot;: &quot;MOBI-PMJC-WF1V-O9EP&quot;,
+&quot;category&quot;: &quot;Mobile Actions&quot;,
+&quot;subCategory&quot;: &quot;appium&quot;,
+&quot;actionType&quot;: &quot;elementVisiblityCheck&quot;,
+&quot;attr&quot;: &quot;id&quot;,
+&quot;value&quot;: &quot;com.truecaller:id/empty_state_logo&quot;,
+&quot;out&quot;: &quot;alertcheck&quot;,
+&quot;scope&quot;: &quot;ACTION&quot;
+ }
+</code></pre>
+<p><strong>click</strong>: Action to click on the element.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-64"></a><a href="#json-format-64" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">   &quot;clicknotification1&quot;: {
+    &quot;referenceId&quot;: &quot;MOBI-PMJC-WF1V-O9EP&quot;,
+    &quot;category&quot;: &quot;Mobile Actions&quot;,
+    &quot;subCategory&quot;: &quot;appium&quot;,
+    &quot;actionType&quot;: &quot;click&quot;,
+    &quot;attr&quot;: &quot;driverId&quot;, // Type of the attribute, it can be id/xpath/class/driverId/
+     driverxpath/driverClassName/driverAccessibilityId
+    &quot;value&quot;: &quot;com.truecaller:id/nextButton&quot;,
+    &quot;scope&quot;: &quot;ACTION&quot;
+  }
+</code></pre>
+<p><strong>touchAction</strong>: Action to interact with an element on mobile touchscreen through x and y axis.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-65"></a><a href="#json-format-65" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">    &quot;touchaction1&quot;: {
+              &quot;referenceId&quot;: &quot;MOBI-PMJC-WF1V-O9EP&quot;,
+              &quot;category&quot;: &quot;Mobile Actions&quot;,
+              &quot;subCategory&quot;: &quot;appium&quot;,
+              &quot;actionType&quot;: &quot;touchAction&quot;,
+              &quot;xaxis&quot;: 200, // Touch-driven panning is permitted along the x-axis.
+              &quot;yaxis&quot;: 200, // Touch-driven panning is permitted along the y-axis.
+              &quot;scope&quot;: &quot;ACTION&quot;
+ }
+</code></pre>
+<p><strong>sendKeys</strong>: It will enter the given data in the field.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-66"></a><a href="#json-format-66" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">       &quot;entermobile&quot;:
+ {
+              &quot;referenceId&quot;: &quot;MOBI-PMJC-WF1V-O9EP&quot;,
+              &quot;category&quot;: &quot;Mobile Actions&quot;,
+              &quot;subCategory&quot;: &quot;appium&quot;,
+              &quot;actionType&quot;: &quot;sendKeys&quot;,
+              &quot;arguments&quot;: &quot;@LocationDetail.loopIndex.Mobile&quot;,
+              &quot;attr&quot;: &quot;driverClassName&quot;,
+              &quot;value&quot;: &quot;android.widget.EditText&quot;,
+              &quot;scope&quot;: &quot;ACTION&quot;
+  }
+</code></pre>
+<p><strong>getText</strong>: It will retrieve the inner text of the element that present in between opening and closing tags. It will store the value as variable that given as “out”.</p>
+<h6><a class="anchor" aria-hidden="true" id="json-format-67"></a><a href="#json-format-67" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><strong>JSON Format</strong></h6>
+<pre><code class="hljs">&quot;getName&quot;: {
+              &quot;referenceId&quot;: &quot;MOBI-PMJC-WF1V-O9EP&quot;,
+              &quot;category&quot;: &quot;Mobile Actions&quot;,
+              &quot;subCategory&quot;: &quot;appium&quot;,
+              &quot;actionType&quot;: &quot;getText&quot;,
+              &quot;attr&quot;: &quot;className&quot;,
+              &quot;value&quot;: &quot;android.widget.TextView&quot;,
+              &quot;instance&quot;: &quot;0&quot;,
+              &quot;out&quot;: &quot;NameOfPerson&quot;,
+              &quot;notFound&quot;: &quot;not present&quot;, // When there is no text in the location, 
+               then the value will be assigned as “not present”.
+              &quot;scope&quot;: &quot;ACTION&quot;
+            }</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/doc4"><span class="arrow-prev">← </span><span>How to Run Sample Process?</span></a><a class="docs-next button" href="/docs/doc6"><span>How to Develop a Custom Plugin?</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#uprerequisitesu"><u>Prerequisites</u></a><ul class="toc-headings"><li><a href="#uabout-the-documentu"><u>About the Document</u></a></li><li><a href="#uwhat-is-a-json-fileu"><u>What is a JSON File?</u></a></li><li><a href="#ujson-structure-u"><u>JSON Structure </u></a></li><li><a href="#umajor-components-of-the-qruize-magic-folderu"><u>Major Components of the Qruize Magic Folder</u></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.png" alt="Qruize Magic" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://qruize.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="QruizeFacebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Qruize Inc</section></footer></div></body></html>

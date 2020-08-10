@@ -1,0 +1,179 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Qruize Magic - Deployment Procedures · Qruize Magic</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="## Prerequiste ##"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Qruize Magic - Deployment Procedures · Qruize Magic"/><meta property="og:type" content="website"/><meta property="og:url" content="https://chandruQ.github.io/"/><meta property="og:description" content="## Prerequiste ##"/><meta property="og:image" content="https://chandruQ.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://chandruQ.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/logo.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://chandruQ.github.io/blog/atom.xml" title="Qruize Magic Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://chandruQ.github.io/blog/feed.xml" title="Qruize Magic Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/logo.png" alt="Qruize Magic"/><h2 class="headerTitleWithLogo">Qruize Magic</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/doc" target="_self">Docs</a></li><li class=""><a href="/docs/doc11" target="_self">API</a></li><li class=""><a href="/help" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>QruizeMagic</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">QruizeMagic</h3><ul class=""><li class="navListItem"><a class="navItem" href="/docs/doc">About QruizeMagic</a></li><li class="navListItem"><a class="navItem" href="/docs/doc1">QM in Business Model</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/doc2">How to Deploy QM (On-Premise)</a></li><li class="navListItem"><a class="navItem" href="/docs/doc3">How to Use and Install QM</a></li><li class="navListItem"><a class="navItem" href="/docs/doc4">How to Run Sample Process?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc5">How to Build a Automation Process?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc6">How to Develop a Custom Plugin?</a></li><li class="navListItem"><a class="navItem" href="/docs/doc7">Third party integrated service</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Qruize Magic - Deployment Procedures</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="prerequiste"></a><a href="#prerequiste" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prerequiste</h2>
+<h5><a class="anchor" aria-hidden="true" id="a-windows-server-version-2012"></a><a href="#a-windows-server-version-2012" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>a. Windows Server Version 2012</h5>
+<h5><a class="anchor" aria-hidden="true" id="b-xampp-version-x64-7319-which-includes-apache-webserver-mysql-database-and-php"></a><a href="#b-xampp-version-x64-7319-which-includes-apache-webserver-mysql-database-and-php" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>b. Xampp version x64-7.3.19 (which includes apache webserver, mysql database and php)</h5>
+<h5><a class="anchor" aria-hidden="true" id="c-php-version-7319"></a><a href="#c-php-version-7319" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>c. Php version 7.3.19</h5>
+<h3><a class="anchor" aria-hidden="true" id="installation-process-of-the-xampp-server"></a><a href="#installation-process-of-the-xampp-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation Process of the XAMPP Server</h3>
+<p>Step 1: To download the XAMPP server, visit the &quot;Apache Friends&quot; website in your web browser.</p>
+<p>Step 2: Click on &quot;XAMPP for Windows&quot;. Then, navigate the downloading location and the file will be automatically downloaded.</p>
+<p><img src="/img/QMDeployment/1.jpg" alt="XAMPP Installer"></p>
+<p>Step 3: Double-click the downloaded file to launch the XAMPP installer.</p>
+<p><img src="/img/QMDeployment/2.jpg" alt="Launch XAMPP Installer"></p>
+<p>Step 4: &quot;Setup&quot; window will appear on the screen. Then, click on the &quot;Next&quot; button.</p>
+<p><img src="/img/QMDeployment/3.jpg" alt="Setup XAMPP Installer"></p>
+<p>Step 5: Select the components that you want to install and click on the &quot;Next&quot; button.</p>
+<p><img src="/img/QMDeployment/4.jpg" alt="Select components"></p>
+<h5><a class="anchor" aria-hidden="true" id="note-by-default-all-components-are-selected-in-your-xampp-installation"></a><a href="#note-by-default-all-components-are-selected-in-your-xampp-installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Note: By default, all components are selected in your XAMPP installation.</h5>
+<p>Step 6: Choose a folder to install the XAMPP and click on the &quot;Next&quot; button.</p>
+<p><img src="/img/QMDeployment/5.jpg" alt="Installation folder"></p>
+<p>Step 7: Uncheck the &quot;Learn more about Bitnami for XAMPP&quot; option and click on the &quot;Next&quot; button.</p>
+<p><img src="/img/QMDeployment/6.jpg" alt="Bitnaumi setup"></p>
+<p>Step 8: &quot;Ready to Install&quot; window will appear on the screen, then click on the &quot;Next&quot; button.</p>
+<p><img src="/img/QMDeployment/7.jpg" alt="Ready to Install"></p>
+<p>Step 9: Click on the &quot;Finish&quot; button.</p>
+<p><img src="/img/QMDeployment/8.jpg" alt="Finish"></p>
+<p>Step 10: Select a language. (either English or German) and click on the &quot;Save&quot; button.</p>
+<p><img src="/img/QMDeployment/9.jpg" alt="Language"></p>
+<h4><a class="anchor" aria-hidden="true" id="configuration-process-of-xampp-server"></a><a href="#configuration-process-of-xampp-server" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Process of XAMPP Server</h4>
+<p>Step 1: Start the XAMPP control panel through the <b>&quot;Run as administrator&quot;</b> option.</p>
+<p>Step 2: &quot;XAMPP Control Panel&quot; will appear on the screen and click on &quot;Start&quot; action to start the <b>&quot;Apache&quot;</b> and <b>&quot;MySQL&quot;</b> modules.</p>
+<p><img src="/img/QMDeployment/10.jpg" alt="Language"></p>
+<h5><a class="anchor" aria-hidden="true" id="note-"></a><a href="#note-" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Note:-</h5>
+<p>The default XAMPP server settings should work for most users. When you start the related modules (services) then, the color of the related modules (service) becomes change into the green color and the PID(s) and the Port(s) number will also be shown to the user.</p>
+<p><img src="/img/QMDeployment/11.jpg" alt="Language"></p>
+<p><b> Phalcon Installation: </b>
+We need to install WAMP/MAMP/LAMP/XAMP according to your operating system. Below the installation is based on WAMP (Windows Apache MySQL PHP).
+We install the following prerequisite:</p>
+<ol>
+<li>Phalcon</li>
+<li>Developer tools</li>
+</ol>
+<p><b>Installing Phalcon:</b></p>
+<p>Step 1: Download Phalcon from <a href="https://phalconphp.com/en/download">https://phalconphp.com/en/download</a> for windows.
+Download Phalcon dll file for Windows.</p>
+<p><img src="/img/QMDeployment/12.jpg" alt="Language"></p>
+<p>Step 2: Unzip the folder in C:\Xampp\bin\php\php5.5.12\ext i.e. in extension folder of php.</p>
+<p><img src="/img/QMDeployment/13.jpg" alt="Language"></p>
+<p>Step 3: Edit the php.ini file which is located at C:\wamp\bin\php\php5.5.12\php.ini with notepad or other similar editor.</p>
+<p><img src="/img/QMDeployment/14.jpg" alt="Language"></p>
+<p>Step 4: Restart Apache server and we can see the Phalcon extension added.</p>
+<p><b>Installing Developer tools</b></p>
+<p>Step 1: Download developer tools from <a href="https://github.com/phalcon/phalcon-devtools">https://github.com/phalcon/phalcon-devtools</a> of correct version. Extract in C:\ drive which looks like C:\phalcon-devtools-master.
+Version info in XAMPP
+Check by running XAMPP server then click on php info().</p>
+<p><img src="/img/QMDeployment/15.jpg" alt="Language"></p>
+<p><img src="/img/QMDeployment/16.jpg" alt="Language"></p>
+<p>Step 2: Set environment variables for PHP and Phalcon developer tools.</p>
+<p><img src="/img/QMDeployment/17.jpg" alt="Language"></p>
+<p><img src="/img/QMDeployment/18.jpg" alt="Language"></p>
+<p><img src="/img/QMDeployment/19.jpg" alt="Language"></p>
+<p>Step 3: Open cmd and type command &quot;phalcon&quot;.</p>
+<p><img src="/img/QMDeployment/20.jpg" alt="Language"></p>
+<p>Step 4: Create project demo using command.</p>
+<ol>
+<li>phalcon create-project &lt;project-name&gt;.</li>
+</ol>
+<p><img src="/img/QMDeployment/21.jpg" alt="Language"></p>
+<p><img src="/img/QMDeployment/22.jpg" alt="Language"></p>
+<p><b>Edit:</b> We edit the server config file,</p>
+<ol>
+<li>Open apache's configuration file in text editor. The configuration files location at {wamp_dir}/apache/conf/httpd.conf.</li>
+<li>Search for the following string: #LoadModule rewrite_module modules/mod_rewrite.so and uncomment it (remove the '#' sign).</li>
+<li>Now search for another string AllowOverride None and replace it by AllowOverride All.</li>
+<li>Finally save the changes and restart your wamp server.
+Run- To check the successful installation of project we run project file located under directory file:///C:/wamp/www/demo/index.html and run on localhost.</li>
+</ol>
+<p><img src="/img/QMDeployment/23.jpg" alt="Language"></p>
+<h3><a class="anchor" aria-hidden="true" id="qruizemagic-configuration-in-apache-webserver"></a><a href="#qruizemagic-configuration-in-apache-webserver" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>QruizeMagic Configuration in Apache webserver</h3>
+<p>Step 1:
+Get the latest build from qm team</p>
+<p>Step 2: Create qm frontend and qm api content path as below in apache htdocs,</p>
+<h5><a class="anchor" aria-hidden="true" id="dqmhtdocsqruize_magic_api"></a><a href="#dqmhtdocsqruize_magic_api" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>D:\qm\htdocs\qruize_magic_api</h5>
+<h5><a class="anchor" aria-hidden="true" id="dqmhtdocsqruize_magic_ui"></a><a href="#dqmhtdocsqruize_magic_ui" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>D:\qm\htdocs\qruize_magic_ui</h5>
+<p>Step 3: Create the apache virtual host in https-vhosts,
+Open D:\qm\apache\conf\extra\httpd-vhosts and create virtual hosts as below,</p>
+<p>&lt;VirtualHost <ip address of your server>:81&gt;
+##ServerAdmin <a href="mailto:webmaster@dummy-host2.example.com">webmaster@dummy-host2.example.com</a>
+DocumentRoot &quot;D:/qm/htdocs/qruize_magic_ui&quot;
+##ServerName dummy-host2.example.com
+##ErrorLog &quot;logs/dummy-host2.example.com-error.log&quot;
+##CustomLog &quot;logs/dummy-host2.example.com-access.log&quot; common
+</VirtualHost></p>
+<p>&lt;VirtualHost <ip address of your server>:82&gt;
+##ServerAdmin <a href="mailto:webmaster@dummy-host2.example.com">webmaster@dummy-host2.example.com</a>
+DocumentRoot &quot;D:/qm/htdocs/qruize_magic_api_new/public&quot;
+##ServerName dummy-host2.example.com
+##ErrorLog &quot;logs/dummy-host2.example.com-error.log&quot;
+##CustomLog &quot;logs/dummy-host2.example.com-access.log&quot; common
+</VirtualHost></p>
+<p><b>Qruize Magic Database configuration</b></p>
+<p>open D:\qm\htdocs\qruize_magic_api_new\app\config\server.development file and create content as below,</p>
+<p>database' =&gt; [
+'adapter' =&gt; 'Mysql',
+//'host' =&gt; 'localhost',
+'host' =&gt; 'localhost',
+'username' =&gt; '<db user name>',
+'password' =&gt; '<password>',
+'dbname' =&gt; 'qruize_magic_db',</p>
+<p><b>Qruizemagic Base URL Configuration</b></p>
+<p>open D:\qm\htdocs\qruize_magic_ui\js\config file and configure as below,</p>
+<p>BASEURL = &quot;enter qm api url here&quot;;</p>
+<p>Example: BASEURL = &quot;<a href="http://172.31.22.192:82">http://172.31.22.192:82</a>&quot;;</p>
+<p><b>QM database import in mysql</b></p>
+<p>Get the db dump from qm team and import into mysql dataabse</p>
+<p><b>Checking qm working status</b></p>
+<p>Access the qm url <b>&quot;http:// your server ip&quot;</b></p>
+<p>Enter username and password</p>
+<p>After sucessfull login you can ensure that qm is working fine</p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/doc1"><span class="arrow-prev">← </span><span>QM in Business Model</span></a><a class="docs-next button" href="/docs/doc3"><span>How to Use and Install QM</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#prerequiste">Prerequiste</a><ul class="toc-headings"><li><a href="#installation-process-of-the-xampp-server">Installation Process of the XAMPP Server</a></li><li><a href="#qruizemagic-configuration-in-apache-webserver">QruizeMagic Configuration in Apache webserver</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/logo.png" alt="Qruize Magic" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="https://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://qruize.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="QruizeFacebook Open Source" width="170" height="45"/></a><section class="copyright">Copyright © 2020 Qruize Inc</section></footer></div></body></html>
